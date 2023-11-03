@@ -1,0 +1,37 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: gainsboro;
+    height: 200px;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    font-size: 12px;
+    font-family: pretendard;
+    width: 100%;
+    justify-content: center;
+}
+
+.display {
+    display: flex;
+    justify-content: center;
+}
+
+.display > div {
+    margin: 0 10px;
+}
+
+.opacity {
+    opacity: 0.4;
+}
+
+.terms, .info {
+    hover: #4A5BF6;
+    cursor: pointer;
+}
