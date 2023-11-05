@@ -1,3 +1,44 @@
-.wrapper {
-    height: 100%;
+.custom-carousel-container {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.slick-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.slick-dots li {
+    display: inline;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.slick-dots li button {
+    border: none;
+}
+
+.slick-dots li button::before {
+    margin-top: 20px;
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: 2px solid #1890ff;
+    background-color: #4A5BF6;
+    border-radius: 50%;
+    display: block;
+}
+
+.text {
+    font-family: pretendard;
+    font-size: 20px;
+}
+
+.mainImg {
+    margin: 0 auto;
+}
+
+.nextBtn {
+    margin-top: 50px;
+    width: 300px;
 }
