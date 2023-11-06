@@ -1,6 +1,16 @@
-.wrapper {
-    width: 200px;
-    height: 600px;
-    border-color: black;
-    border-radius: 10px;
+.textarea-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textarea {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: pretendard;
+    overflow-y: scroll;
+    resize: none;
+    background-color: ghostwhite;
 }

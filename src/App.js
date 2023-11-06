@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage";
-import Footer from "./components/Footer";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import AgreePage from "./pages/AgreePage";
@@ -18,7 +17,6 @@ function App() {
                         <Route path="/agree" element={<AgreePage/>}/>
                     </Routes>
                 </div>
-                <Footer/>
             </div>
         </BrowserRouter>
     );

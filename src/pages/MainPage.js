@@ -1,7 +1,9 @@
 import React from "react";
-import { Carousel } from "antd";
+import {Button, Carousel} from "antd";
 import { LeftCircleOutlined, RightCircleOutlined } from "@ant-design/icons";
 import "../css/MainPage.css";
+import {useNavigate} from "react-router-dom";
+import Footer from "../components/Footer";
 
 const MainPage = () => {
     const settings = {
@@ -9,6 +11,11 @@ const MainPage = () => {
         prevArrow: <CustomPrevArrow />,
         nextArrow: <CustomNextArrow />,
     };
+
+    const navigate = useNavigate();
+    const goOnAgreePage = () => {
+        navigate("/agree"); // 임의로 이용동의 페이지로 이동하게 함 (카카오 로그인 페이지로 수정할 예정)
+    }
 
     return (
         <div className="custom-carousel-container">
@@ -45,8 +52,10 @@ const MainPage = () => {
                     <br/>
                 </div>
             </Carousel>
-            <img className="nextBtn" src={process.env.PUBLIC_URL + `/assets/next button.svg`}/>
+            <Button className="nextBtn" onClick={goOnAgreePage}> 다음 </Button>
+            <Footer/>
         </div>
+
     );
 };
 

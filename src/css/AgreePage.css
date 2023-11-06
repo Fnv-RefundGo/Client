@@ -13,10 +13,10 @@
 }
 .contents-box {
     border-radius: 10px;
-    border-bottom-color: black;
+    border: 1px solid #ccc;
     background-color: ghostwhite;
     width: 400px;
-    height: 100px;
+    height: 120px;
     padding: 20px;
     margin: 0 auto;
 }
@@ -27,13 +27,26 @@
     font-weight: bold;
 }
 
-.nextBtn {
-    width: 450px;
-}
 a {
     color: darkgrey;
 }
 
 a:hover {
     color: black;
+}
+
+.nextButton {
+    width: 450px;
+    height: 35px;
+    background-color: #4A5BF6;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+    font-family: pretendard;
+    margin-top: 50px;
+}
+
+span {
+    font-family: pretendard;
 }

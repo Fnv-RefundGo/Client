@@ -39,6 +39,13 @@
 }
 
 .nextBtn {
-    margin-top: 50px;
     width: 300px;
+    height: 35px;
+    background-color: #4A5BF6;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+    font-family: pretendard;
+    margin-top : 50px;
 }

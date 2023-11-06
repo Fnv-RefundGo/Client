@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Checkbox} from 'antd';
+import {Button, Checkbox} from 'antd';
 import '../css/AgreePage.css';
 
 const CheckboxGroup = Checkbox.Group;
@@ -55,7 +55,7 @@ const AgreePage = () => {
                 <br/><br/>
                 <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange}/>
             </div>
-            <img className="nextBtn" src={process.env.PUBLIC_URL + `/assets/next button.svg`}/>
+            <Button className="nextButton"> 다음 </Button>
         </div>
     );
 };
