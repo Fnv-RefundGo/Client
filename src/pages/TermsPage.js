@@ -1,8 +1,12 @@
 import React from 'react';
+import ScrollableTextarea from '../components/ScrollableTextarea';
+import '../css/TermsPage.css';
+
 const TermsPage = () => {
     return(
         <div className="wrapper">
-            hello
+            <ScrollableTextarea/>
+           <div></div>
         </div>
     );
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 import "../css/Footer.css";
 import {useNavigate} from "react-router-dom";
 
@@ -6,8 +7,8 @@ const Footer = () => {
     const goOnTermsPage = () =>{
         navigate("/TermsPage");
     }
-    const goOnInfoPage = () =>{
-        navigate("/InfoPage");
+    const goOnPrivacyPage = () =>{
+        navigate("/PrivacyPage");
     }
     return (
         <div className="footer">
@@ -26,7 +27,7 @@ const Footer = () => {
                 <div className="opacity">
                 <div className="display">
                     <div className="terms" onClick={goOnTermsPage}>서비스 이용약관</div>
-                    <div className="info" onClick={goOnInfoPage}>개인정보 처리방침</div>
+                    <div className="privacy" onClick={goOnPrivacyPage}>개인정보 처리방침</div>
                 </div></div><br/>
             </div>
         </div>

@@ -3,8 +3,9 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: gainsboro;
-    height: 200px;
+    background-color: ghostwhite;
+    height: 150px;
+    padding: 10px;
 }
 
 .content {

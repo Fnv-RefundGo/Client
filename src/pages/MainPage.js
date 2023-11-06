@@ -29,7 +29,7 @@ const MainPage = () => {
                     <br/>
                     <div className="text">
                         <div>환급신청 잊어도 걱정마세요.</div>
-                        <div>환금Go가 챙겨드려요!</div>
+                        <div>환급Go가 챙겨드려요!</div>
                     </div>
                     <br/>
                 </div>

@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import Footer from "./components/Footer";
 import TermsPage from "./pages/TermsPage";
-import InfoPage from "./pages/InfoPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import AgreePage from "./pages/AgreePage";
 
 function App() {
     return (
@@ -13,7 +14,8 @@ function App() {
                     <Routes>
                         <Route path="/" element={<MainPage/>}/>
                         <Route path="/terms" element={<TermsPage/>}/>
-                        <Route path="/info" element={<InfoPage/>}/>
+                        <Route path="/privacy" element={<PrivacyPage/>}/>
+                        <Route path="/agree" element={<AgreePage/>}/>
                     </Routes>
                 </div>
                 <Footer/>

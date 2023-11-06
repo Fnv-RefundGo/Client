@@ -1,0 +1,39 @@
+.contents {
+    margin-top: 50px;
+    font-family: pretendard;
+}
+.title {
+    font-weight: bold;
+    font-size: 20px;
+}
+.text {
+    margin-top: 30px;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+.contents-box {
+    border-radius: 10px;
+    border-bottom-color: black;
+    background-color: ghostwhite;
+    width: 400px;
+    height: 100px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.checkbox {
+    font-family: pretendard;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.nextBtn {
+    width: 450px;
+}
+a {
+    color: darkgrey;
+}
+
+a:hover {
+    color: black;
+}
