@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import '../css/TermsPage.css';
+import {Button} from "antd";
 
-class ScrollableTextarea extends Component {
+class ScrollableTextareaTermsMain extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -68,15 +69,16 @@ class ScrollableTextarea extends Component {
             <div className="textarea-container">
                 <textarea
                     className="textarea"
-                    rows="40"
+                    rows="38"
                     cols="70"
                     ref={(textarea) => (this.textarea = textarea)}
                     onChange={this.handleTextareaChange}
                     spellcheck="false"
                 />
+                <Button className="backButton" a href="/">확인</Button>
             </div>
         );
     }
 }
 
-export default ScrollableTextarea;
+export default ScrollableTextareaTermsMain;

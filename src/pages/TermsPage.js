@@ -1,8 +1,11 @@
 import React from 'react';
-import ScrollableTextarea from '../components/ScrollableTextarea';
+import ScrollableTextareaTerms from '../components/ScrollableTextarea-terms';
 import '../css/TermsPage.css';
+import {Button} from "antd";
 
 const TermsPage = () => {
-    return(<ScrollableTextarea />);
+    return(
+        <ScrollableTextareaTerms />
+    );
 }
 export default TermsPage;

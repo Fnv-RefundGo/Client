@@ -5,10 +5,10 @@ import {useNavigate} from "react-router-dom";
 const Footer = () => {
     const navigate = useNavigate();
     const goOnTermsPage = () =>{
-        navigate("/terms");
+        navigate("/terms-main");
     }
     const goOnPrivacyPage = () =>{
-        navigate("/privacy");
+        navigate("/privacy-main");
     }
     return (
         <div className="footer">
