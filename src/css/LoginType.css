@@ -1,0 +1,51 @@
+.adImg {
+    margin-top: 50px;
+    width: 450px;
+}
+.typeTitle {
+    font-family: pretendard;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+
+.business-type-container {
+    display: grid;
+
+    align-items: center;
+    margin: 0 auto;
+}
+
+.business-type-option {
+    font-family: pretendard;
+    justify-content: space-between;
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.business-type-option.selected {
+    border-color: #4A5BF6;
+}
+
+.business-type-option label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nextB {
+    width: 420px;
+    height: 35px;
+    background-color: #4A5BF6;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+    font-family: pretendard;
+    margin: 0 auto;
+}
