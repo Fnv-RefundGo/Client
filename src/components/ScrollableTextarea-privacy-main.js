@@ -135,7 +135,7 @@ class ScrollableTextareaPrivacyMain extends Component {
                 <textarea
                     className="textarea"
                     rows="38"
-                    cols="70"
+                    cols="60"
                     ref={(textarea) => (this.textarea = textarea)}
                     onChange={this.handleTextareaChange}
                     spellcheck="false"

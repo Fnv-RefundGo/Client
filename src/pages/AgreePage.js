@@ -1,37 +1,44 @@
-import React, {useState} from 'react';
-import {Button, Checkbox} from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Button, Checkbox } from 'antd';
 import '../css/AgreePage.css';
 
 const CheckboxGroup = Checkbox.Group;
-const plainOptions = [{
-    label: (
-        <span>
+const plainOptions = [
+    {
+        label: (
+            <span>
         [필수] 이용약관 동의
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="/terms"> <b> > </b></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/terms"> <b> > </b></a>
       </span>
-    ), value: 'terms',
-}, {
-    label: (
-        <span>
+        ),
+        value: 'terms',
+    },
+    {
+        label: (
+            <span>
         [필수] 개인정보 수집 및 이용 동의
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="/privacy"><b> > </b></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/privacy"><b> > </b></a>
       </span>
-    ), value: 'privacy',
-}, {
-    label: (
-        <span>
+        ),
+        value: 'privacy',
+    },
+    {
+        label: (
+            <span>
         [선택] 마케팅 활용 및 수신 동의
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="/marketing"><b> > </b></a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/marketing"><b> > </b></a>
       </span>
-    ), value: 'marketing',
-},];
+        ),
+        value: 'marketing',
+    },
+];
 
 const AgreePage = () => {
     const [checkedList, setCheckedList] = useState([]);
@@ -41,8 +48,10 @@ const AgreePage = () => {
     };
 
     const onCheckAllChange = (e) => {
-        setCheckedList(e.target.checked ? plainOptions.map(option => option.value) : []);
+        setCheckedList(e.target.checked ? plainOptions.map((option) => option.value) : []);
     };
+
+    const isAllRequiredChecked = checkedList.includes('terms') && checkedList.includes('privacy');
 
     return (
         <div className="contents">
@@ -52,10 +61,12 @@ const AgreePage = () => {
                 <Checkbox className="checkbox" onChange={onCheckAllChange} checked={checkAll}>
                     모두 동의합니다.
                 </Checkbox>
-                <br/><br/>
-                <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange}/>
+                <br /><br />
+                <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
             </div>
-            <Button className="nextButton"> 다음 </Button>
+            <Button className="nextButton" disabled={!isAllRequiredChecked}>
+                다음
+            </Button>
         </div>
     );
 };
