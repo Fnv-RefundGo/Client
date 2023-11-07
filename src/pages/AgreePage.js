@@ -64,7 +64,7 @@ const AgreePage = () => {
                 <br /><br />
                 <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
             </div>
-            <Button className="nextButton" disabled={!isAllRequiredChecked}>
+            <Button className="nextButton" disabled={!isAllRequiredChecked} a href="/login-type">
                 다음
             </Button>
         </div>

@@ -7,6 +7,7 @@ import AgreePage from "./pages/AgreePage";
 import MarketingPage from "./pages/MarketingPage";
 import TermsPageMain from "./pages/TermsPage-main";
 import PrivacyPageMain from "./pages/PrivacyPage-main";
+import LoginType from "./pages/login/LoginType";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                         <Route path="/privacy-main" element={<PrivacyPageMain/>}/>
                         <Route path="/marketing" element={<MarketingPage />}/>
                         <Route path="/agree" element={<AgreePage/>}/>
+                        <Route path="/login-type" element={<LoginType/>}/>
                     </Routes>
                 </div>
             </div>

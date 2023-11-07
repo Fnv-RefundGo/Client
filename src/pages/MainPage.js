@@ -24,7 +24,7 @@ const MainPage = () => {
                     <br/>
                     <img className="mainImg" src={process.env.PUBLIC_URL + `/assets/refund.svg`}/>
                     <br/>
-                    <div className="text">
+                    <div className="mainText">
                         <div>환급Go와 함께 잊고 있던</div>
                         <div>환금액을 찾아보세요</div>
                     </div>
@@ -34,7 +34,7 @@ const MainPage = () => {
                     <br/>
                     <img className="mainImg" src={process.env.PUBLIC_URL + `/assets/alarm.svg`}/>
                     <br/>
-                    <div className="text">
+                    <div className="mainText">
                         <div>환급신청 잊어도 걱정마세요.</div>
                         <div>환급Go가 챙겨드려요!</div>
                     </div>
@@ -44,7 +44,7 @@ const MainPage = () => {
                     <br/>
                     <img className="mainImg" src={process.env.PUBLIC_URL + `/assets/clock.svg`}/>
                     <br/>
-                    <div className="text">
+                    <div className="mainText">
                         <div>1분이면 신청완료!</div>
                         <div>환급Go와 환급액 찾기</div>
                         <div>시작해볼까요?</div>
