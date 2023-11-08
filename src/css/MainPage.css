@@ -10,17 +10,17 @@
 
 .slick-dots li {
     display: inline;
-    margin: 0 5px;
     cursor: pointer;
 }
 
 .slick-dots li button {
     border: none;
+    position: absolute;
 }
 
 .slick-dots li button::before {
     margin-top: 20px;
-    content: "";
+    content: '';
     width: 12px;
     height: 12px;
     border: 2px solid #1890ff;
@@ -49,3 +49,5 @@
     font-family: pretendard;
     margin-top : 50px;
 }
+
+

@@ -1,6 +1,5 @@
 import React from 'react';
 import "../../css/LoginType.css";
-import {Button, Checkbox} from "antd";
 import LoginTypeSelection from "../../components/LoginTypeSelection";
 
 const LoginType = () => {
