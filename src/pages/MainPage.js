@@ -13,8 +13,8 @@ const MainPage = () => {
     };
 
     const navigate = useNavigate();
-    const goOnAgreePage = () => {
-        navigate("/agree"); // 임의로 이용동의 페이지로 이동하게 함 (카카오 로그인 페이지로 수정할 예정)
+    const goOnIdentificationPage = () => {
+        navigate("/kakao-identification");
     }
 
     return (
@@ -52,7 +52,7 @@ const MainPage = () => {
                     <br/>
                 </div>
             </Carousel>
-            <Button className="nextBtn" onClick={goOnAgreePage}> 다음 </Button>
+            <Button className="nextBtn" onClick={goOnIdentificationPage}> 다음 </Button>
             <Footer/>
         </div>
 
