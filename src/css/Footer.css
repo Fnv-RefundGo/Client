@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     background-color: ghostwhite;
-    height: 150px;
+    height: 200px;
     padding: 10px;
 }
 
@@ -35,4 +35,12 @@
 .terms, .privacy {
     hover: #4A5BF6;
     cursor: pointer;
+}
+
+.channel-talk {
+    width: 40px;
+    margin-bottom: 10px;
+    margin-right: 50px;
+    float: right;
+
 }

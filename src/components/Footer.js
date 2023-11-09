@@ -28,7 +28,10 @@ const Footer = () => {
                 <div className="display">
                     <div className="terms" onClick={goOnTermsPage}>서비스 이용약관</div>
                     <div className="privacy" onClick={goOnPrivacyPage}>개인정보 처리방침</div>
-                </div></div><br/>
+
+                </div>
+                </div><br/>
+                <img className="channel-talk" src={process.env.PUBLIC_URL + `/assets/channel-talk.svg`}/>
             </div>
         </div>
     );

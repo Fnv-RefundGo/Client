@@ -6,7 +6,7 @@
 }
 
 .textarea {
-    margin-top: 20px;
+    margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-family: pretendard;
@@ -37,4 +37,9 @@
     font-size: 13px;
     font-family: pretendard;
     margin-top: 10px;
+}
+
+.icon {
+    margin-top: 20px;
+    width: 150px;
 }

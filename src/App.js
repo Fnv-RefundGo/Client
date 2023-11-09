@@ -1,12 +1,12 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage";
-import TermsPage from "./pages/TermsPage";
-import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/terms/TermsPage";
+import PrivacyPage from "./pages/terms/PrivacyPage";
 import AgreePage from "./pages/AgreePage";
-import MarketingPage from "./pages/MarketingPage";
-import TermsPageMain from "./pages/TermsPage-main";
-import PrivacyPageMain from "./pages/PrivacyPage-main";
+import MarketingPage from "./pages/terms/MarketingPage";
+import TermsPageMain from "./pages/terms/TermsPage-main";
+import PrivacyPageMain from "./pages/terms/PrivacyPage-main";
 import LoginType from "./pages/login/LoginType";
 import Identification from "./pages/kakao/Identification";
 
