@@ -35,6 +35,7 @@
     background-color: #FEE500;
     display: flex;
     padding: 10px;
+    cursor: pointer;
 }
 
 .kakao-logo {
@@ -46,4 +47,9 @@
     margin-top: 10px;
     font-size: 17px;
     font-weight: bold;
+    color: black;
+}
+
+a.kakao-loginBtn {
+    text-decoration: none;
 }

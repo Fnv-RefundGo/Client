@@ -1,0 +1,30 @@
+.wrapper {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.backB {
+    margin-top: 10px;
+    float: left;
+}
+
+.hometax-text1 {
+    font-family: pretendard;
+    text-align: left;
+    font-size: 20px;
+}
+
+span.hometax {
+    color: #4A5BF6;
+}
+
+.hometax-name, .hometax-ssn, .hometax-phone{
+    margin-top: 20px;
+    text-align: left;
+    font-family: pretendard;
+    color: grey;
+}
+
+.ssn-front, .ssn-back {
+    width: 48.5%;
+}

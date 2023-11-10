@@ -1,8 +1,8 @@
 import React from 'react';
-import "../../css/LoginType.css";
+import "../../css/LoginTypePage.css";
 import LoginTypeSelection from "../../components/LoginTypeSelection";
 
-const LoginType = () => {
+const LoginTypePage = () => {
     return(
         <div>
             <img className="adImg" src={process.env.PUBLIC_URL + `/assets/ad.png`}/>
@@ -13,4 +13,4 @@ const LoginType = () => {
         </div>
     );
 }
-export default LoginType;
+export default LoginTypePage;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/LoginType.css';
+import '../css/LoginTypePage.css';
 import { Button } from 'antd';
 
 class LoginTypeSelection extends Component {

@@ -27,11 +27,11 @@
     font-weight: bold;
 }
 
-a {
+a.termsBtn {
     color: darkgrey;
 }
 
-a:hover {
+a.termsBtn:hover {
     color: black;
 }
 

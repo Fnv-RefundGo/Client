@@ -7,8 +7,9 @@ import AgreePage from "./pages/AgreePage";
 import MarketingPage from "./pages/terms/MarketingPage";
 import TermsPageMain from "./pages/terms/TermsPage-main";
 import PrivacyPageMain from "./pages/terms/PrivacyPage-main";
-import LoginType from "./pages/login/LoginType";
+import LoginTypePage from "./pages/login/LoginTypePage";
 import Identification from "./pages/kakao/Identification";
+import InfoInputPage from "./pages/individual/InfoInputPage";
 
 function App() {
     return (
@@ -23,8 +24,9 @@ function App() {
                         <Route path="/privacy-main" element={<PrivacyPageMain/>}/>
                         <Route path="/marketing" element={<MarketingPage />}/>
                         <Route path="/agree" element={<AgreePage/>}/>
-                        <Route path="/login-type" element={<LoginType/>}/>
+                        <Route path="/login-type" element={<LoginTypePage/>}/>
                         <Route path="/kakao-identification" element={<Identification/>}/>
+                        <Route path="/individual-infoInput" element={<InfoInputPage/>}/>
                     </Routes>
                 </div>
             </div>
