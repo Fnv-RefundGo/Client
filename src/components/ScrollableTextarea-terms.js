@@ -69,7 +69,7 @@ class ScrollableTextareaTerms extends Component {
             <div className="textarea-container">
                 <textarea
                     className="textarea"
-                    rows="38"
+                    rows="32"
                     cols="60"
                     ref={(textarea) => (this.textarea = textarea)}
                     onChange={this.handleTextareaChange}
