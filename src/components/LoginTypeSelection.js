@@ -13,7 +13,7 @@ function LoginTypeSelection() {
 
     const handleNextButtonClick = () => {
         if (selectedOption === 'individual') {
-            navigate('/individual-infoInput');
+            navigate('/hometax-individual-infoInput');
         }
     };
 

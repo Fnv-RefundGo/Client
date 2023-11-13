@@ -1,5 +1,5 @@
 .wrapper {
-    width: 500px;
+    width: 450px;
     margin: 0 auto;
 }
 
@@ -26,5 +26,5 @@ span.hometax {
 }
 
 .ssn-front, .ssn-back {
-    width: 48.5%;
+    width: 48%;
 }

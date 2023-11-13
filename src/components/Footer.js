@@ -5,10 +5,10 @@ import {useNavigate} from "react-router-dom";
 const Footer = () => {
     const navigate = useNavigate();
     const goOnTermsPage = () =>{
-        navigate("/terms-main");
+        navigate("/terms");
     }
     const goOnPrivacyPage = () =>{
-        navigate("/privacy-main");
+        navigate("/privacy");
     }
     return (
         <div className="footer">
@@ -28,7 +28,6 @@ const Footer = () => {
                 <div className="display">
                     <div className="terms" onClick={goOnTermsPage}>서비스 이용약관</div>
                     <div className="privacy" onClick={goOnPrivacyPage}>개인정보 처리방침</div>
-
                 </div>
                 </div><br/>
                 <img className="channel-talk" src={process.env.PUBLIC_URL + `/assets/channel-talk.svg`}/>

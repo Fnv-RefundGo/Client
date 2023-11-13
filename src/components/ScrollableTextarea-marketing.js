@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../css/TermsPage.css';
-import {Button} from "antd";
 
 class ScrollableTextareaMarketing extends Component {
     constructor(props) {
@@ -26,13 +25,12 @@ class ScrollableTextareaMarketing extends Component {
             <div className="textarea-container">
                 <textarea
                     className="textarea"
-                    rows="32"
+                    rows="35"
                     cols="60"
                     ref={(textarea) => (this.textarea = textarea)}
                     onChange={this.handleTextareaChange}
                     spellcheck="false"
                 />
-                <Button className="okButton" a href="/agree"> 확인 </Button>
             </div>
         );
     }

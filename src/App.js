@@ -5,11 +5,11 @@ import TermsPage from "./pages/terms/TermsPage";
 import PrivacyPage from "./pages/terms/PrivacyPage";
 import AgreePage from "./pages/AgreePage";
 import MarketingPage from "./pages/terms/MarketingPage";
-import TermsPageMain from "./pages/terms/TermsPage-main";
-import PrivacyPageMain from "./pages/terms/PrivacyPage-main";
 import LoginTypePage from "./pages/login/LoginTypePage";
 import Identification from "./pages/kakao/Identification";
-import InfoInputPage from "./pages/individual/InfoInputPage";
+import InfoInputPage from "./pages/individual/hometax/InfoInputPage";
+import PrivacyPageHometax from "./pages/terms/PrivacyPage-hometax";
+import ThirdPageHometax from "./pages/terms/ThirdPage-hometax";
 
 function App() {
     return (
@@ -19,14 +19,14 @@ function App() {
                     <Routes>
                         <Route path="/" element={<MainPage/>}/>
                         <Route path="/terms" element={<TermsPage/>}/>
-                        <Route path="/terms-main" element={<TermsPageMain/>}/>
                         <Route path="/privacy" element={<PrivacyPage/>}/>
-                        <Route path="/privacy-main" element={<PrivacyPageMain/>}/>
                         <Route path="/marketing" element={<MarketingPage />}/>
                         <Route path="/agree" element={<AgreePage/>}/>
                         <Route path="/login-type" element={<LoginTypePage/>}/>
                         <Route path="/kakao-identification" element={<Identification/>}/>
-                        <Route path="/individual-infoInput" element={<InfoInputPage/>}/>
+                        <Route path="/hometax-individual-infoInput" element={<InfoInputPage/>}/>
+                        <Route path="/hometax-privacy" element={<PrivacyPageHometax/>}/>
+                        <Route path="/hometax-third" element={<ThirdPageHometax/>}/>
                     </Routes>
                 </div>
             </div>
