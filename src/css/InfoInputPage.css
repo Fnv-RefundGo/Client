@@ -26,5 +26,12 @@ span.hometax {
 }
 
 .ssn-front, .ssn-back {
-    width: 48%;
+    width: 48.7%;
+}
+
+.error-message {
+    color: red;
+}
+.error-border {
+    border-color: red;
 }

@@ -44,8 +44,75 @@ const plainOptions = [
 ];
 
 const InfoInputPage = () => {
+    const [name, setName] = useState('');
+    const [ssnFront, setSsnFront] = useState('');
+    const [ssnBack, setSsnBack] = useState('');
+    const [phone, setPhone] = useState('');
     const [checkedList, setCheckedList] = useState([]);
     const checkAll = plainOptions.length === checkedList.length;
+    const [errors, setErrors] = useState({});
+
+    const validateName = () => {
+        const nameRegex = /^[a-zA-Z가-힣]+$/; // 이름에는 알파벳과 한글만 허용
+        if (!nameRegex.test(name)) {
+            setErrors((prevErrors) => ({ ...prevErrors, name: '올바른 이름을 입력바랍니다.' }));
+        } else if(name.length < 2){
+            setErrors((prevErrors) => ({ ...prevErrors, name: '2글자 이상 입력바랍니다.' }));
+        } else {
+            setErrors((prevErrors) => ({ ...prevErrors, name: '' }));
+        }
+    };
+
+    const validateSSN = () => {
+        // 앞자리 생년월일 형태 검증 (6자리)
+        const birthDateRegex = /^\d{6}$/;
+        const isValidBirthDate = birthDateRegex.test(ssnFront);
+        const monthDigits = parseInt(ssnFront.substring(2, 4), 10);
+        const dayDigits = parseInt(ssnFront.substring(4, 6), 10);
+        const isValidMonth = monthDigits >= 1 && monthDigits <= 12;
+        const isValidDay = dayDigits >= 1 && dayDigits <= getDaysInMonth(monthDigits);
+
+        // 뒷자리 7자리 검증
+        const isValidFirstDigit = /^[1-4]/.test(ssnBack.charAt(0)); // 맨 앞자리가 1234인지 확인
+        const isValidBackDigits = ssnBack.length === 7;
+
+        if (!isValidBirthDate || !isValidMonth || !isValidDay) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                ssn: '올바른 생년월일을 입력바랍니다.'
+            }));
+        } else if(!isValidBackDigits || !isValidFirstDigit){
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                ssn: '올바른 주민번호 뒷자리를 입력바랍니다.'
+            }));
+        }else {
+            setErrors((prevErrors) => ({ ...prevErrors, ssn: '' }));
+        }
+    };
+
+    // 월에 따른 일수 반환
+    const getDaysInMonth = (month) => {
+        if ([1, 3, 5, 7, 8, 10, 12].includes(month)) {
+            return 31;
+        } else if ([4, 6, 9, 11].includes(month)) {
+            return 30;
+        } else if (month === 2) {
+            return 28;
+        }
+        return 0;
+    };
+
+
+    const validatePhone = () => {
+        const phoneRegex = /^\d{3} \d{4} \d{4}$/;
+        if (!phoneRegex.test(phone) || !/^010|011|016|017|018|019/.test(phone.substring(0, 3))) {
+            setErrors((prevErrors) => ({ ...prevErrors, phone: '올바른 휴대폰 번호를 입력바랍니다.' }));
+        } else {
+            setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
+        }
+    };
+
     const onChange = (list) => {
         setCheckedList(list);
     };
@@ -55,6 +122,11 @@ const InfoInputPage = () => {
     };
 
     const isAllRequiredChecked = checkedList.includes('terms') && checkedList.includes('privacy');
+    const isFormValid = name.length >= 2 && ssnFront.length === 6 && ssnBack.length === 7 && /^\d{3} \d{4} \d{4}$/.test(phone);
+
+    const handleNextButtonClick = () => {
+
+    };
 
     return(
         <div className="wrapper">
@@ -64,18 +136,57 @@ const InfoInputPage = () => {
             <div className="hometax-text1">
                 <span className="hometax">홈택스</span> 정보연계를 위해<br/>사업장의 정보를 입력해 주세요.
             </div>
-            <div className="hometax-name">
+            <div className={`hometax-name ${errors.name ? 'error' : ''}`}>
                 이름
-                <Input placeholder="홍길동" />
+                <Input
+                    className={errors.name ? 'error-border' : ''}
+                    placeholder="홍길동"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    onBlur={() => {
+                        validateName();
+                    }}
+                />
+                {errors.name && <div className="error-message">{errors.name}</div>}
             </div>
-            <div className="hometax-ssn">
-                주민번호<br/>
-                <Input className="ssn-front" placeholder="생년월일" /> - <Input className="ssn-back" placeholder="뒤 7자리"/>
+
+            <div className={`hometax-ssn ${errors.ssn ? 'error' : ''}`}>
+                주민번호<br />
+                <Input
+                    className={`ssn-front ${errors.ssn ? 'error-border' : ''}`}
+                    placeholder="생년월일"
+                    value={ssnFront}
+                    onChange={(e) => setSsnFront(e.target.value)}
+                    onBlur={() => {
+                        validateSSN();
+                    }}
+                /> -
+                <Input
+                    className={`ssn-back ${errors.ssn ? 'error-border' : ''}`}
+                    placeholder="뒤 7자리"
+                    value={ssnBack}
+                    onChange={(e) => setSsnBack(e.target.value)}
+                    onBlur={() => {
+                        validateSSN();
+                    }}
+                />
+                {errors.ssn && <div className="error-message">{errors.ssn}</div>}
             </div>
-            <div className="hometax-phone">
-                휴대폰번호<br/>
-                <Input placeholder="010 1234 5678"/>
+
+            <div className={`hometax-phone ${errors.phone ? 'error' : ''}`}>
+                휴대폰번호<br />
+                <Input
+                    className={errors.phone ? 'error-border' : ''}
+                    placeholder="010 1234 5678"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    onBlur={() => {
+                        validatePhone();
+                    }}
+                />
+                {errors.phone && <div className="error-message">{errors.phone}</div>}
             </div>
+
             <div className="contents">
                 <div className="contents-box">
                     <Checkbox className="checkbox" onChange={onCheckAllChange} checked={checkAll}>
@@ -84,7 +195,7 @@ const InfoInputPage = () => {
                     <br /><br />
                     <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
                 </div>
-                <Button className="nextButton" disabled={!isAllRequiredChecked}>
+                <Button className="nextButton"  disabled={!isAllRequiredChecked || !isFormValid} onClick={handleNextButtonClick}>
                     다음
                 </Button>
             </div>
