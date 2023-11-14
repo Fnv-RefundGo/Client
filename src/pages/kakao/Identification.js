@@ -11,6 +11,25 @@ const Identification = () => {
     const loginHandler = () => {
         window.location.href = KAKAO_AUTO_URI;
     };
+    useEffect(() => {
+        const authorizationCode = KAKAO_AUTO_URI;
+
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ code: authorizationCode }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // 서버에서 받은 토큰 등을 활용
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }, []);
 
     return (
         <div>

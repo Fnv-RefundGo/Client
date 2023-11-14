@@ -11,6 +11,7 @@ import InfoInputPage from "./pages/individual/hometax/InfoInputPage";
 import PrivacyPageHometax from "./pages/terms/PrivacyPage-hometax";
 import ThirdPageHometax from "./pages/terms/ThirdPage-hometax";
 import Redirection from "./components/Redirection";
+import OAuth from "./components/OAuth";
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
                         <Route path="/hometax-individual-infoInput" element={<InfoInputPage/>}/>
                         <Route path="/hometax-privacy" element={<PrivacyPageHometax/>}/>
                         <Route path="/hometax-third" element={<ThirdPageHometax/>}/>
-                        <Route exact path="/oauth2" element={<Redirection />} />
+                        {/*<Route exact path="/api/v1/oauth2/kakao" element={<OAuth />} />*/}
                     </Routes>
                 </div>
             </div>
