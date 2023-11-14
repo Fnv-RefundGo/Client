@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import "../../../css/InfoInputPage.css";
 import '../../../css/AgreePage.css';
 import {Button, Checkbox, Input, Modal} from "antd";
+import {useNavigate} from "react-router-dom";
 
 const CheckboxGroup = Checkbox.Group;
 const plainOptions = [
@@ -140,6 +141,7 @@ const InfoInputPage = () => {
         }
     }
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate();
     const showModal = () => {
         // 세션 스토리지에서 저장된 데이터를 가져옴
         const storedData = sessionStorage.getItem('userData');
@@ -157,7 +159,7 @@ const InfoInputPage = () => {
                 // 입력 값이 다를 때만 모달을 표시
                 setIsModalOpen(true);
             } else {
-                setIsModalOpen(false);
+                navigate("/hometax-individual-cert");
             }
         } else {
             setIsModalOpen(true);

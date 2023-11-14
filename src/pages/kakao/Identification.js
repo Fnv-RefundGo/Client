@@ -1,16 +1,17 @@
 import React, {useEffect} from 'react';
 import {Button} from "antd";
-import axios from 'axios';
 import "../../css/Identification.css";
 import {useNavigate} from "react-router-dom";
 
 const Identification = () => {
+    const navigate = useNavigate();
     const REST_API_KEY = "88f077af67004ade2b18e854877842f6";
     const REDIRECT_URI = "http://localhost:3000/api/v1/oauth2/kakao";
     const KAKAO_AUTO_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
     const loginHandler = () => {
         window.location.href = KAKAO_AUTO_URI;
     };
+
     useEffect(() => {
         const authorizationCode = KAKAO_AUTO_URI;
 
@@ -21,7 +22,6 @@ const Identification = () => {
             },
             body: JSON.stringify({ code: authorizationCode }),
         })
-            .then((response) => response.json())
             .then((data) => {
                 // 서버에서 받은 토큰 등을 활용
                 console.log(data);
