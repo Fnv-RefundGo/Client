@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "../../../css/InfoInputPage.css";
 import '../../../css/AgreePage.css';
-import {Button, Checkbox, Input} from "antd";
+import {Button, Checkbox, Input, Modal} from "antd";
 
 const CheckboxGroup = Checkbox.Group;
 const plainOptions = [
@@ -124,9 +124,70 @@ const InfoInputPage = () => {
     const isAllRequiredChecked = checkedList.includes('terms') && checkedList.includes('privacy');
     const isFormValid = name.length >= 2 && ssnFront.length === 6 && ssnBack.length === 7 && /^\d{3} \d{4} \d{4}$/.test(phone);
 
-    const handleNextButtonClick = () => {
+    // 세션 스토리지에 데이터 저장
+    const storeDataInSessionStorage = () => {
+        const storedData = sessionStorage.getItem('userData');
+        const currentData = {
+            name,
+            ssnFront,
+            ssnBack,
+            phone,
+        };
 
+        // 저장된 데이터가 없거나 현재 입력된 데이터와 다를 때에만 저장
+        if (!storedData || JSON.stringify(currentData) !== storedData) {
+            sessionStorage.setItem('userData', JSON.stringify(currentData));
+        }
+    }
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+        // 세션 스토리지에서 저장된 데이터를 가져옴
+        const storedData = sessionStorage.getItem('userData');
+
+        // 저장된 데이터가 있다면 현재 입력 값과 비교
+        if (storedData) {
+            const parsedData = JSON.parse(storedData);
+
+            if (
+                name !== parsedData.name ||
+                ssnFront !== parsedData.ssnFront ||
+                ssnBack !== parsedData.ssnBack ||
+                phone !== parsedData.phone
+            ) {
+                // 입력 값이 다를 때만 모달을 표시
+                setIsModalOpen(true);
+            } else {
+                setIsModalOpen(false);
+            }
+        } else {
+            setIsModalOpen(true);
+        }
     };
+
+    const handleOk = () => {
+        storeDataInSessionStorage();
+        setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+
+    // useEffect 훅에서 세션 스토리지에서 데이터를 가져와 초기 상태 설정
+    useEffect(() => {
+        const storedData = sessionStorage.getItem('userData');
+        if (storedData) {
+            const parsedData = JSON.parse(storedData);
+            setName(parsedData.name || '');
+            setSsnFront(parsedData.ssnFront || '');
+            setSsnBack(parsedData.ssnBack || '');
+            setPhone(parsedData.phone || '');
+        }
+    }, []);
+
+    useEffect(() => {
+        // 페이지가 마운트될 때 세션 스토리지를 초기화
+        sessionStorage.removeItem('userData');
+    }, []);
 
     return(
         <div className="wrapper">
@@ -195,9 +256,26 @@ const InfoInputPage = () => {
                     <br /><br />
                     <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
                 </div>
-                <Button className="nextButton"  disabled={!isAllRequiredChecked || !isFormValid} onClick={handleNextButtonClick}>
+                <Button className="nextButton"  disabled={!isAllRequiredChecked || !isFormValid} onClick={showModal}>
                     다음
                 </Button>
+                <Modal
+                    width="400px"
+                    visible={isModalOpen}
+                    onOk={handleOk}
+                    onCancel={handleCancel}
+                    centered
+                    footer={[
+                        <Button style={{ margin: '0 auto', display: 'block', backgroundColor: '#4A5BF6', color: 'white', width: '200px' }} key="ok" onClick={handleOk}>
+                            확인
+                        </Button>,
+                    ]}
+                >
+                    <div className="modal-text">
+                        <h3>정보가 일치하지 않아요.</h3>
+                        <h3>정확한 본인의 정보를 입력해주세요.</h3>
+                    </div>
+                </Modal>
             </div>
         </div>
     );

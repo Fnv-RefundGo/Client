@@ -35,3 +35,7 @@ span.hometax {
 .error-border {
     border-color: red;
 }
+
+.modal-text {
+    text-align: center;
+}
