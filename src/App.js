@@ -20,7 +20,6 @@ import TermsPageComwel from "./pages/terms/TermsPage-comwel";
 import ThirdPageComwel from "./pages/terms/ThirdPage-comwel";
 import IdPageComwel from "./pages/terms/IdPage-comwel";
 
-
 function App() {
     return (
         <BrowserRouter>
@@ -31,14 +30,13 @@ function App() {
                         <Route path="/terms" element={<TermsPage/>}/>
                         <Route path="/privacy" element={<PrivacyPage/>}/>
                         <Route path="/marketing" element={<MarketingPage />}/>
-                        <Route path="/agree" element={<AgreePage/>}/>
+                        <Route path="/api/v1/oauth2/kakao" element={<AgreePage/>}/>
                         <Route path="/login-type" element={<LoginTypePage/>}/>
                         <Route path="/kakao-identification" element={<Identification/>}/>
                         <Route path="/hometax-individual-infoInput" element={<HometaxIndiInfoInputPage/>}/>
                         <Route path="/hometax-individual-cert" element={<HometaxIndiCertificationPage/>}/>
                         <Route path="/hometax-privacy" element={<PrivacyPageHometax/>}/>
                         <Route path="/hometax-third" element={<ThirdPageHometax/>}/>
-                        {/*<Route exact path="/api/v1/oauth2/kakao" element={<OAuth />} />*/}
                         <Route path="/comwel-individual-infoInput" element={<ComwelIndiInfoInputPage/>}/>
                         <Route path="/comwel-individual-cert" element={<ComwelIndiCertificationPage/>}/>
                         <Route path="/comwel-privacy" element={<PrivacyPageComwel/>}/>
