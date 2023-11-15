@@ -5,6 +5,7 @@ import "../css/MainPage.css";
 import {useNavigate} from "react-router-dom";
 import Footer from "../components/Footer";
 
+
 const MainPage = () => {
     const settings = {
         dots: true,
