@@ -274,8 +274,7 @@ const HometaxIndiInfoInputPage = () => {
                     ]}
                 >
                     <div className="modal-text">
-                        <h3>정보가 일치하지 않아요.</h3>
-                        <h3>정확한 본인의 정보를 입력해주세요.</h3>
+                        <h3>정보가 일치하지 않아요.<br/>정확한 본인의 정보를 입력해주세요.</h3>
                     </div>
                 </Modal>
             </div>

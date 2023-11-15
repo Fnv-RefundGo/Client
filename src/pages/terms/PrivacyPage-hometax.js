@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../css/TermsPage.css';
-import ScrollableTextareaHometaxPrivacy from "../../components/ScrollableTextarea-hometax-privacy";
+import ScrollableTextareaHometaxPrivacy from "../../components/ScollableTextarea/ScrollableTextarea-hometax-privacy";
 
 const PrivacyPageHometax = () => {
     return(

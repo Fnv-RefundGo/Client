@@ -19,7 +19,9 @@ const HometaxIndiCertificationPage = () => {
 
     const handleCancel = () => {
         setIsModalOpen(false);
+        window.location.href = "/comwel-individual-infoInput";
     };
+
 
     const resetTimer = () => {
         setMinutes(5);

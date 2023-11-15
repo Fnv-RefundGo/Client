@@ -1,5 +1,5 @@
 import React from 'react';
-import ScrollableTextareaTerms from '../../components/ScrollableTextarea-terms';
+import ScrollableTextareaTerms from '../../components/ScollableTextarea/ScrollableTextarea-terms';
 import '../../css/TermsPage.css';
 
 const TermsPage = () => {

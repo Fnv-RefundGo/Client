@@ -1,5 +1,5 @@
 import React from 'react';
-import ScrollableTextareaMarketing from "../../components/ScrollableTextarea-marketing";
+import ScrollableTextareaMarketing from "../../components/ScollableTextarea/ScrollableTextarea-marketing";
 import '../../css/TermsPage.css';
 
 const MarketingPage = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import ScrollableTextareaPrivacy from "../../components/ScrollableTextarea-privacy";
+import ScrollableTextareaPrivacy from "../../components/ScollableTextarea/ScrollableTextarea-privacy";
 import '../../css/TermsPage.css';
 
 const PrivacyPage = () => {

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../css/TermsPage.css';
+import '../../css/TermsPage.css';
 
 class ScrollableTextareaHometaxThird extends Component {
     constructor(props) {

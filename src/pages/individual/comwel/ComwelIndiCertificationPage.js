@@ -45,7 +45,7 @@ const ComwelIndiCertificationPage = () => {
 
     return (
         <div className="wrapper">
-            <a href="/hometax-individual-infoInput">
+            <a href="/comwel-individual-infoInput">
                 <img className="backB" src={process.env.PUBLIC_URL + `/assets/back_button.png`} />
             </a>
             <br />
@@ -61,10 +61,10 @@ const ComwelIndiCertificationPage = () => {
             </div>
             <img
                 className="hometax-cert"
-                src={process.env.PUBLIC_URL + `/assets/hometax_cert.png`}
+                src={process.env.PUBLIC_URL + `/assets/comwel_cert.png`}
             />
             <Button className="certButton" onClick={showModal}>
-                홈택스 인증요청
+                근로복지공단 인증요청
             </Button>
             <Modal
                 width="400px"

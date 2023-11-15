@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../css/TermsPage.css';
+import '../../css/TermsPage.css';
 import {Button} from "antd";
 
 class ScrollableTextareaPrivacy extends Component {

@@ -177,7 +177,7 @@ const ComwelIndiInfoInputPage = () => {
                 // 입력 값이 다를 때만 모달을 표시
                 setIsModalOpen(true);
             } else {
-                navigate("/hometax-individual-cert");
+                navigate("/comwel-individual-cert");
             }
         } else {
             setIsModalOpen(true);
@@ -211,7 +211,7 @@ const ComwelIndiInfoInputPage = () => {
 
     return(
         <div className="wrapper">
-            <a href="/login-type">
+            <a href="/hometax-individual-cert">
                 <img className="backB" src={process.env.PUBLIC_URL + `/assets/back_button.png`}/>
             </a><br/><br/><br/>
             <div className="hometax-text1">
@@ -292,8 +292,7 @@ const ComwelIndiInfoInputPage = () => {
                     ]}
                 >
                     <div className="modal-text">
-                        <h3>정보가 일치하지 않아요.</h3>
-                        <h3>정확한 본인의 정보를 입력해주세요.</h3>
+                        <h3>정보가 일치하지 않아요. <br/> 정확한 본인의 정보를 입력해주세요.</h3>
                     </div>
                 </Modal>
             </div>

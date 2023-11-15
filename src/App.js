@@ -15,6 +15,10 @@ import OAuth from "./components/OAuth";
 import HometaxIndiCertificationPage from "./pages/individual/hometax/HometaxIndiCertificationPage";
 import ComwelIndiInfoInputPage from "./pages/individual/comwel/ComwelIndiInfoInputPage";
 import ComwelIndiCertificationPage from "./pages/individual/comwel/ComwelIndiCertificationPage";
+import PrivacyPageComwel from "./pages/terms/PrivacyPage-comwel";
+import TermsPageComwel from "./pages/terms/TermsPage-comwel";
+import ThirdPageComwel from "./pages/terms/ThirdPage-comwel";
+import IdPageComwel from "./pages/terms/IdPage-comwel";
 
 
 function App() {
@@ -31,12 +35,16 @@ function App() {
                         <Route path="/login-type" element={<LoginTypePage/>}/>
                         <Route path="/kakao-identification" element={<Identification/>}/>
                         <Route path="/hometax-individual-infoInput" element={<HometaxIndiInfoInputPage/>}/>
+                        <Route path="/hometax-individual-cert" element={<HometaxIndiCertificationPage/>}/>
                         <Route path="/hometax-privacy" element={<PrivacyPageHometax/>}/>
                         <Route path="/hometax-third" element={<ThirdPageHometax/>}/>
                         {/*<Route exact path="/api/v1/oauth2/kakao" element={<OAuth />} />*/}
-                        <Route path="/hometax-individual-cert" element={<HometaxIndiCertificationPage/>}/>
                         <Route path="/comwel-individual-infoInput" element={<ComwelIndiInfoInputPage/>}/>
                         <Route path="/comwel-individual-cert" element={<ComwelIndiCertificationPage/>}/>
+                        <Route path="/comwel-privacy" element={<PrivacyPageComwel/>}/>
+                        <Route path="/comwel-terms" element={<TermsPageComwel/>}/>
+                        <Route path="/comwel-third" element={<ThirdPageComwel/>}/>
+                        <Route path="/comwel-id" element={<IdPageComwel/>}/>
                     </Routes>
                 </div>
             </div>

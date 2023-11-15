@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../css/TermsPage.css';
-import ScrollableTextareaHometaxThird from "../../components/ScrollableTextarea-hometax-third";
+import ScrollableTextareaHometaxThird from "../../components/ScollableTextarea/ScrollableTextarea-hometax-third";
 
 const ThirdPageHometax = () => {
     return(

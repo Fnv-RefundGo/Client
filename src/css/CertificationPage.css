@@ -24,7 +24,7 @@
     font-size: 13px;
     margin-top: 0px;
     color: grey;
-    font-family: 함초롱바탕;
+    font-family: 함초롬바탕;
 }
 
 .kakao-cert-timer {
@@ -73,6 +73,5 @@
 .next-icon {
     text-align: center;
     color: lightgrey;
-    font-weight: bold;
     font-size: 20px;
 }
