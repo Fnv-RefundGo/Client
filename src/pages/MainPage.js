@@ -27,7 +27,7 @@ const MainPage = () => {
                     <br/>
                     <div className="mainText">
                         <div>환급Go와 함께 잊고 있던</div>
-                        <div>환금액을 찾아보세요</div>
+                        <div>환급액을 찾아보세요</div>
                     </div>
                     <br/>
                 </div>

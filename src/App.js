@@ -19,6 +19,7 @@ import PrivacyPageComwel from "./pages/terms/PrivacyPage-comwel";
 import TermsPageComwel from "./pages/terms/TermsPage-comwel";
 import ThirdPageComwel from "./pages/terms/ThirdPage-comwel";
 import IdPageComwel from "./pages/terms/IdPage-comwel";
+import IndiRefundCompletePage from "./pages/individual/IndiRefundCompletePage";
 
 function App() {
     return (
@@ -43,6 +44,7 @@ function App() {
                         <Route path="/comwel-terms" element={<TermsPageComwel/>}/>
                         <Route path="/comwel-third" element={<ThirdPageComwel/>}/>
                         <Route path="/comwel-id" element={<IdPageComwel/>}/>
+                        <Route path="/individual-refund-complete" element={<IndiRefundCompletePage/>}/>
                     </Routes>
                 </div>
             </div>

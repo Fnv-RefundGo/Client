@@ -2,9 +2,12 @@ import React, {useEffect, useState} from 'react';
 import "../../../css/InfoInputPage.css";
 import '../../../css/AgreePage.css';
 import '../../../css/ComwelIndiInfoInput.css';
-import {Button, Checkbox, Input, Modal} from "antd";
+import {Button, Checkbox, Input, Modal, Popover, Steps} from "antd";
 import {useNavigate} from "react-router-dom";
 
+const customDot = (dot) => (
+    <Popover>{dot}</Popover>
+);
 const CheckboxGroup = Checkbox.Group;
 const plainOptions = [
     {
@@ -187,6 +190,15 @@ const ComwelIndiInfoInputPage = () => {
     }, []);
 
     return(
+        <div>
+            <div style={{ width: "600px", margin: "0 auto"}}>
+                <Steps
+                    current={2}
+                    progressDot={customDot}
+                    style={{marginTop:"10px",}}
+                    items={[{title: '',}, {title: '',}, {title: '',}, {title: '',},]}
+                />
+            </div>
         <div className="wrapper">
             <a href="/hometax-individual-cert">
                 <img className="backB" src={process.env.PUBLIC_URL + `/assets/back_button.png`}/>
@@ -273,6 +285,7 @@ const ComwelIndiInfoInputPage = () => {
                     </div>
                 </Modal>
             </div>
+        </div>
         </div>
     );
 }

@@ -1,0 +1,32 @@
+.complete-wrapper {
+    margin-top: 80px;
+    font-family: pretendard;
+}
+
+.complete-text1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.complete-text2 {
+    margin-top: 20px;
+    font-size: 18px;
+    color: grey;
+}
+
+.imgAlign {
+    margin-top: 50px;
+    display: inline-flex;
+}
+
+.homeBtn {
+    width: 450px;
+    height: 45px;
+    background-color: #4A5BF6;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: pretendard;
+    margin-top: 50px;
+}

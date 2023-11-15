@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import '../../../css/InfoInputPage.css';
 import '../../../css/CertificationPage.css';
-import { Button, Modal } from 'antd';
+import {Button, Modal, Popover, Steps} from 'antd';
 
+const customDot = (dot) => (
+    <Popover>{dot}</Popover>
+);
 const ComwelIndiCertificationPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [minutes, setMinutes] = useState(5);
@@ -19,6 +22,7 @@ const ComwelIndiCertificationPage = () => {
 
     const handleCancel = () => {
         setIsModalOpen(false);
+        window.location.href = "/individual-refund-complete";
     };
 
     const resetTimer = () => {
@@ -44,6 +48,15 @@ const ComwelIndiCertificationPage = () => {
     }, [minutes, seconds]);
 
     return (
+        <div>
+            <div style={{ width: "600px", margin: "0 auto"}}>
+                <Steps
+                    current={2.5}
+                    progressDot={customDot}
+                    style={{marginTop:"10px",}}
+                    items={[{title: '',}, {title: '',}, {title: '',}, {title: '',},]}
+                />
+            </div>
         <div className="wrapper">
             <a href="/comwel-individual-infoInput">
                 <img className="backB" src={process.env.PUBLIC_URL + `/assets/back_button.png`} />
@@ -117,6 +130,7 @@ const ComwelIndiCertificationPage = () => {
                     </div>
                 </div><br/><br/>
             </Modal>
+        </div>
         </div>
     );
 };
