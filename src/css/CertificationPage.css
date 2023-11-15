@@ -21,8 +21,10 @@
 
 .kakao-cert-text {
     text-align: center;
-    font-size: 11px;
+    font-size: 13px;
     margin-top: 0px;
+    color: grey;
+    font-family: 함초롱바탕;
 }
 
 .kakao-cert-timer {
@@ -46,4 +48,31 @@
     background-color: #4A5BF6;
     color: white;
     font-size: 16px;
+}
+
+.modal-contents {
+    display: inline-flex;
+    border-radius: 10px;
+    background-color: aliceblue;
+    width: 330px;
+    padding: 10px;
+    margin-left: 1px;
+}
+
+.cert-img {
+    width: 50px;
+    margin-left: 10px;
+}
+
+.cert-msg {
+    float: left;
+    margin-left: 20px;
+    font-family: pretendard;
+}
+
+.next-icon {
+    text-align: center;
+    color: lightgrey;
+    font-weight: bold;
+    font-size: 20px;
 }
