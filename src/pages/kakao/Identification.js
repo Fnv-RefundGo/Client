@@ -4,32 +4,39 @@ import "../../css/Identification.css";
 import {useNavigate} from "react-router-dom";
 
 const Identification = () => {
-    const navigate = useNavigate();
     const REST_API_KEY = "88f077af67004ade2b18e854877842f6";
     const REDIRECT_URI = "http://localhost:3000/api/v1/oauth2/kakao";
-    const KAKAO_AUTO_URI = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+    const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
     const loginHandler = () => {
-        window.location.href = KAKAO_AUTO_URI;
+        window.location.href = KAKAO_AUTH_URL;
     };
 
     useEffect(() => {
-        const authorizationCode = KAKAO_AUTO_URI;
+        // URL의 쿼리 매개변수에서 인가 코드를 가져옴
+        const urlParams = new URLSearchParams(window.location.search);
+        const authorizationCode = urlParams.get('code');
 
-        fetch('/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ code: authorizationCode }),
-        })
-            .then((data) => {
-                // 서버에서 받은 토큰 등을 활용
-                console.log(data);
+        if (authorizationCode) {
+            // 서버로 인가 코드를 전송
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ code: authorizationCode }),
             })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+                .then((response) => response.json())
+                .then((data) => {
+                    // 서버로부터의 응답 처리 (토큰이 포함될 수 있음)
+                    console.log(data);
+                })
+                .catch((error) => {
+                    console.error('에러:', error);
+                });
+        }
     }, []);
+
 
     return (
         <div>

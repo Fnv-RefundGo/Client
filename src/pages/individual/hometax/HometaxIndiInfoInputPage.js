@@ -44,7 +44,7 @@ const plainOptions = [
     },
 ];
 
-const InfoInputPage = () => {
+const HometaxIndiInfoInputPage = () => {
     const [name, setName] = useState('');
     const [ssnFront, setSsnFront] = useState('');
     const [ssnBack, setSsnBack] = useState('');
@@ -282,4 +282,4 @@ const InfoInputPage = () => {
         </div>
     );
 }
-export default InfoInputPage;
+export default HometaxIndiInfoInputPage;

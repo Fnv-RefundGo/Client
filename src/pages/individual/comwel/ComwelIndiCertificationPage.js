@@ -3,7 +3,7 @@ import '../../../css/InfoInputPage.css';
 import '../../../css/CertificationPage.css';
 import { Button, Modal } from 'antd';
 
-const CertificationPage = () => {
+const ComwelIndiCertificationPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [minutes, setMinutes] = useState(5);
     const [seconds, setSeconds] = useState(0);
@@ -90,7 +90,7 @@ const CertificationPage = () => {
                         onClick={handleOk}
                     >
                         재인증 요청
-                    </Button>,
+                    </Button>,<br/>
                 ]}
             >
                 <div className="kakao-cert-text">
@@ -115,10 +115,10 @@ const CertificationPage = () => {
                         <b>STEP 2.</b><br/>
                         카카오톡에서 간편인증 진행하기
                     </div>
-                </div><br/>
+                </div><br/><br/>
             </Modal>
         </div>
     );
 };
 
-export default CertificationPage;
+export default ComwelIndiCertificationPage;

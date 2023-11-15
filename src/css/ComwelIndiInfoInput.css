@@ -1,0 +1,26 @@
+span.comwel {
+    color: darkturquoise;
+    font-weight: bold;
+}
+
+.comwel-contents-box {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: ghostwhite;
+    width: 400px;
+    height: 140px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.comwel-nextButton {
+    width: 450px;
+    height: 35px;
+    background-color: #4A5BF6;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+    font-family: pretendard;
+    margin-top: 20px;
+}

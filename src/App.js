@@ -7,12 +7,14 @@ import AgreePage from "./pages/AgreePage";
 import MarketingPage from "./pages/terms/MarketingPage";
 import LoginTypePage from "./pages/login/LoginTypePage";
 import Identification from "./pages/kakao/Identification";
-import InfoInputPage from "./pages/individual/hometax/InfoInputPage";
+import HometaxIndiInfoInputPage from "./pages/individual/hometax/HometaxIndiInfoInputPage";
 import PrivacyPageHometax from "./pages/terms/PrivacyPage-hometax";
 import ThirdPageHometax from "./pages/terms/ThirdPage-hometax";
 import Redirection from "./components/Redirection";
 import OAuth from "./components/OAuth";
-import CertificationPage from "./pages/individual/hometax/CertificationPage";
+import HometaxIndiCertificationPage from "./pages/individual/hometax/HometaxIndiCertificationPage";
+import ComwelIndiInfoInputPage from "./pages/individual/comwel/ComwelIndiInfoInputPage";
+import ComwelIndiCertificationPage from "./pages/individual/comwel/ComwelIndiCertificationPage";
 
 
 function App() {
@@ -28,11 +30,13 @@ function App() {
                         <Route path="/agree" element={<AgreePage/>}/>
                         <Route path="/login-type" element={<LoginTypePage/>}/>
                         <Route path="/kakao-identification" element={<Identification/>}/>
-                        <Route path="/hometax-individual-infoInput" element={<InfoInputPage/>}/>
+                        <Route path="/hometax-individual-infoInput" element={<HometaxIndiInfoInputPage/>}/>
                         <Route path="/hometax-privacy" element={<PrivacyPageHometax/>}/>
                         <Route path="/hometax-third" element={<ThirdPageHometax/>}/>
                         {/*<Route exact path="/api/v1/oauth2/kakao" element={<OAuth />} />*/}
-                        <Route path="/hometax-individual-cert" element={<CertificationPage/>}/>
+                        <Route path="/hometax-individual-cert" element={<HometaxIndiCertificationPage/>}/>
+                        <Route path="/comwel-individual-infoInput" element={<ComwelIndiInfoInputPage/>}/>
+                        <Route path="/comwel-individual-cert" element={<ComwelIndiCertificationPage/>}/>
                     </Routes>
                 </div>
             </div>

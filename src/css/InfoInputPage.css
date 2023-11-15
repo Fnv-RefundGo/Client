@@ -16,6 +16,7 @@
 
 span.hometax {
     color: #4A5BF6;
+    font-weight: bold;
 }
 
 .hometax-name, .hometax-ssn, .hometax-phone{
