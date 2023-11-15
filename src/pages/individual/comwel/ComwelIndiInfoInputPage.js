@@ -9,49 +9,26 @@ const CheckboxGroup = Checkbox.Group;
 const plainOptions = [
     {
         label: (
-            <span>
-        [필수] 개인정보 이용 동의
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a className="termsBtn" href="/comwel-privacy"> <b> > </b></a>
-      </span>
+            <span>[필수] 개인정보 이용 동의 &nbsp;&nbsp;<a className="termsBtn" href="/comwel-privacy"> <b> > </b></a></span>
         ),
         value: 'privacy',
     },
     {
         label: (
-            <span>
-        [필수] 서비스 이용약관 동의
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a className="termsBtn" href="/comwel-terms"> <b> > </b></a>
-      </span>
+            <span>[필수] 서비스 이용약관 동의&nbsp;&nbsp;<a className="termsBtn" href="/comwel-terms"> <b> > </b></a></span>
         ),
         value: 'terms',
     },
     {
         label: (
-            <span>
-        [필수] 제3자정보 제공 동의
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a className="termsBtn" href="/comwel-third"><b> > </b></a>
+            <span>[필수] 제3자정보 제공 동의&nbsp;&nbsp;<a className="termsBtn" href="/comwel-third"><b> > </b></a>
       </span>
         ),
         value: 'third',
     },
     {
         label: (
-            <span>
-        [필수] 고유식별 정보처리 동의
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a className="termsBtn" href="/comwel-id"><b> > </b></a>
-      </span>
+            <span>[필수] 고유식별 정보처리 동의&nbsp;&nbsp;<a className="termsBtn" href="/comwel-id"><b> > </b></a></span>
         ),
         value: 'id',
     },
@@ -274,7 +251,7 @@ const ComwelIndiInfoInputPage = () => {
                         모두 동의합니다.
                     </Checkbox>
                     <br /><br />
-                    <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
+                    <CheckboxGroup className="checkboxGroup" options={plainOptions} value={checkedList} onChange={onChange} />
                 </div>
                 <Button className="comwel-nextButton" disabled={!isAllRequiredChecked || !isFormValid} onClick={showModal}>
                     다음

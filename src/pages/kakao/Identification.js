@@ -22,7 +22,7 @@ const Identification = () => {
 
         if (authorizationCode) {
             // 서버로 인가 코드를 전송
-            fetch('/api/v1/oauth2/kakao', {
+            fetch('/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,7 +40,6 @@ const Identification = () => {
                 .then((data) => {
                     // 서버로부터의 응답 처리 (토큰이 포함될 수 있음)
                     console.log(data);
-                    console.log("로그인 성공");
                     // 로그인에 성공하면 /agree 경로로 이동
                     navigate("/agree");
                 })

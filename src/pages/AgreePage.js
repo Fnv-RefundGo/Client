@@ -6,35 +6,19 @@ const CheckboxGroup = Checkbox.Group;
 const plainOptions = [
     {
         label: (
-            <span>
-        [필수] 이용약관 동의
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a className="termsBtn" href="/terms"> <b> > </b></a>
-      </span>
+            <span>[필수] 이용약관 동의&nbsp;&nbsp;<a className="termsBtn" href="/terms"> <b> > </b></a></span>
         ),
         value: 'terms',
     },
     {
         label: (
-            <span>
-        [필수] 개인정보 수집 및 이용 동의
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a className="termsBtn" href="/privacy"><b> > </b></a>
-      </span>
+            <span>[필수] 개인정보 수집 및 이용 동의&nbsp;&nbsp;<a className="termsBtn" href="/privacy"><b> > </b></a></span>
         ),
         value: 'privacy',
     },
     {
         label: (
-            <span>
-        [선택] 마케팅 활용 및 수신 동의
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a className="termsBtn" href="/marketing"><b> > </b></a>
-      </span>
+            <span>[선택] 마케팅 활용 및 수신 동의&nbsp;&nbsp;<a className="termsBtn" href="/marketing"><b> > </b></a></span>
         ),
         value: 'marketing',
     },
