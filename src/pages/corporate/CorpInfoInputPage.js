@@ -28,9 +28,12 @@ const CorpInfoInputPage = () => {
 
     // 사업자번호 검증
     const validateBusinessNum = () => {
-        const isValidFirstDigit = businessNumFst.length === 3;
-        const isValidSecondDigit = businessNumSec.length === 2;
-        const isValidThirdDigit = businessNumTrd.length === 5;
+        const businessNumFstRegex = /^\d{3}$/;
+        const businessNumSecRegex = /^\d{2}$/;
+        const businessNumTrdRegex = /^\d{5}$/;
+        const isValidFirstDigit = businessNumFstRegex.test(businessNumFst);
+        const isValidSecondDigit = businessNumSecRegex.test(businessNumSec);
+        const isValidThirdDigit = businessNumTrdRegex.test(businessNumTrd);
 
     if (!isValidFirstDigit || !isValidSecondDigit || !isValidThirdDigit ) {
         setErrors((prevErrors) => ({
@@ -42,7 +45,8 @@ const CorpInfoInputPage = () => {
     }
     };
 
-    const isFormValid = corpName.length >= 1 && /^[a-zA-Z가-힣]+$/.test(corpName) && businessNumFst.length === 3 && businessNumSec.length === 2 && businessNumTrd.length === 5;
+    const isFormValid = corpName.length >= 1 && /^[a-zA-Z가-힣]+$/.test(corpName)
+        && /^\d{3}$/.test(businessNumFst) && /^\d{2}$/.test(businessNumSec) && /^\d{5}$/.test(businessNumTrd);
 
     return(
         <div>
