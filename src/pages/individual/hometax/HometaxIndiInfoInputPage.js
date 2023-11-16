@@ -91,7 +91,7 @@ const HometaxIndiInfoInputPage = () => {
 
 
     const validatePhone = () => {
-        const phoneRegex = /^\d{3} \d{4} \d{4}$/;
+        const phoneRegex = /^\d{3}\d{4}\d{4}$/;
         if (!phoneRegex.test(phone) || !/^010|011|016|017|018|019/.test(phone.substring(0, 3))) {
             setErrors((prevErrors) => ({ ...prevErrors, phone: '올바른 휴대폰 번호를 입력바랍니다.' }));
         } else {
@@ -108,7 +108,7 @@ const HometaxIndiInfoInputPage = () => {
     };
 
     const isAllRequiredChecked = checkedList.includes('terms') && checkedList.includes('privacy');
-    const isFormValid = name.length >= 2 && ssnFront.length === 6 && ssnBack.length === 7 && /^\d{3} \d{4} \d{4}$/.test(phone);
+    const isFormValid = name.length >= 2 && /^[a-zA-Z가-힣]+$/.test(name) && ssnFront.length === 6 && ssnBack.length === 7 && /^\d{3}\d{4}\d{4}$/.test(phone);
 
     // 세션 스토리지에 데이터 저장
     const storeDataInSessionStorage = () => {
@@ -217,8 +217,7 @@ const HometaxIndiInfoInputPage = () => {
                     onBlur={() => {
                         validateSSN();
                     }}
-                /> -
-                <Input
+                /> - <Input
                     className={`ssn-back ${errors.ssn ? 'error-border' : ''}`}
                     placeholder="뒤 7자리"
                     value={ssnBack}
@@ -252,7 +251,7 @@ const HometaxIndiInfoInputPage = () => {
                     <br /><br />
                     <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
                 </div>
-                <Button className="nextButton"  disabled={!isAllRequiredChecked || !isFormValid} onClick={showModal}>
+                <Button className="nextButton-hometax" disabled={!isAllRequiredChecked || !isFormValid} onClick={showModal}>
                     다음
                 </Button>
                 <Modal

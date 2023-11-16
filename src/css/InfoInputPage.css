@@ -27,7 +27,7 @@ span.hometax {
 }
 
 .ssn-front, .ssn-back {
-    width: 48.7%;
+    width: 48%;
 }
 
 .error-message {
@@ -39,4 +39,31 @@ span.hometax {
 
 .modal-text {
     text-align: center;
+}
+
+.nextButton-hometax {
+    width: 450px;
+    height: 35px;
+    background-color: #4A5BF6;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+    font-family: pretendard;
+    margin-top: 20px;
+}
+
+.corp-text1 {
+    font-size: 20px;
+    font-family: pretendard;
+    float: left;
+}
+
+.corp-text2 {
+    color: grey;
+    font-family: pretendard;
+    font-size: 14.5px;
+    text-align: left;
+    float: left;
+    opacity: 80%;
 }

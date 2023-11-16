@@ -14,6 +14,8 @@ function LoginTypeSelection() {
     const handleNextButtonClick = () => {
         if (selectedOption === 'individual') {
             navigate('/hometax-individual-infoInput');
+        } else if (selectedOption === 'corporate') {
+            navigate('/corporate-member-infoInput');
         }
     };
 
