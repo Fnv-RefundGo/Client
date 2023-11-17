@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "../../css/InfoInputPage.css";
 import "../../css/CorpInfoInputPage.css";
 import {Button, Input, Popover, Steps, Modal} from "antd";
+import {useNavigate} from "react-router-dom";
 
 const customDot = (dot) => (
     <Popover>{dot}</Popover>
@@ -15,8 +16,11 @@ const CorpInfoInputPage = () => {
     const [errors, setErrors] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isManagerModalOpen, setIsManagerModalOpen] = useState(false);
+    const [isCompleteManagerModalOpen, setIsCompleteManagerModalOpen] = useState(false);
+    const [isFailManagerModalOpen, setIsFailManagerModalOpen] = useState(false);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
+    const navigate = useNavigate();
 
     // 상호명 검증
     const validateCorpName = () => {
@@ -52,10 +56,44 @@ const CorpInfoInputPage = () => {
     const isFormValid = corpName.length >= 1 && /^[a-zA-Z가-힣]+$/.test(corpName)
         && /^\d{3}$/.test(businessNumFst) && /^\d{2}$/.test(businessNumSec) && /^\d{5}$/.test(businessNumTrd);
 
+    // 세션 스토리지에 데이터 저장
+    const storeDataInSessionStorage = () => {
+        const storedData = sessionStorage.getItem('corpData');
+        const currentData = {corpName, businessNumFst, businessNumSec, businessNumTrd};
+        if (!storedData) {
+            sessionStorage.setItem('corpData', JSON.stringify(currentData));
+        }
+    }
+
+    // 세션 스토리지에 데이터 저장
+    const storeManagerDataInSessionStorage = () => {
+        const storedData = sessionStorage.getItem('managerData');
+        const currentData = {name, phone};
+        if (!storedData) {
+            sessionStorage.setItem('managerData', JSON.stringify(currentData));
+        }
+    }
+
     // 모달
     const showModal = () => {
-        setIsModalOpen(true);
+        const storedData = sessionStorage.getItem('corpData');
+        if(storedData) {
+            const parsedData = JSON.parse(storedData);
+            if (
+                corpName !== parsedData.corpName ||
+                businessNumFst !== parsedData.businessNumFst ||
+                businessNumSec !== parsedData.businessNumSec ||
+                businessNumTrd !== parsedData.businessNumTrd
+            ) {
+                navigate("/");
+            } else {
+                setIsModalOpen(true);
+            }
+            } else {
+                storeDataInSessionStorage();
+            }
     };
+
     const handleOk = () => {
         setIsModalOpen(false);
     };
@@ -73,6 +111,47 @@ const CorpInfoInputPage = () => {
     const ManagerHandleCancel = () => {
         setIsManagerModalOpen(false);
     };
+
+    // 담당자 변경 결과 모달
+    const showResultManagerModal = () => {
+        const storedData = sessionStorage.getItem('managerData');
+        if(storedData) {
+            const parsedData = JSON.parse(storedData);
+            if (
+                name !== parsedData.name ||
+                phone !== parsedData.phone
+            ) {
+                showCompleteManagerModal();
+            } else {
+                showFailManagerModal();
+            }
+        } else {
+            storeManagerDataInSessionStorage();
+        }
+    };
+    const showCompleteManagerModal = () => {
+        setIsCompleteManagerModalOpen(true);
+    }
+    const CompleteManagerHandleOk = () => {
+        setIsCompleteManagerModalOpen(false);
+    };
+
+    const CompleteManagerHandleCancel = () => {
+        setIsCompleteManagerModalOpen(false);
+    };
+
+    // 담당자 변경 실패 모달
+    const showFailManagerModal = () => {
+        setIsFailManagerModalOpen(true);
+    }
+
+    const FailManagerHandleOk = () => {
+        setIsFailManagerModalOpen(false);
+    }
+
+    const FailManagerHandleCancel = () => {
+        setIsFailManagerModalOpen(false);
+    }
 
     // 담당자 이름, 연락처 검증
     const validateName = () => {
@@ -94,6 +173,8 @@ const CorpInfoInputPage = () => {
             setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
         }
     };
+
+    const isManagerFormValid = name.length >= 2 && /^[a-zA-Z가-힣]+$/.test(name) && /^\d{3}\d{4}\d{4}$/.test(phone);
 
     return(
         <div>
@@ -189,13 +270,14 @@ const CorpInfoInputPage = () => {
                             <Button style={{ margin: '0 auto', backgroundColor: '#DCDCDC', width: '150px', }} key="ok" onClick={ManagerHandleOk}>
                                 닫기
                             </Button>
-                            <Button style={{ margin: '0 auto', backgroundColor: '#4A5BF6', color: 'white', width: '150px',}}>
+                            <Button style={{ margin: '0 auto', backgroundColor: '#4A5BF6', color: 'white', width: '150px',}}
+                                    disabled={!isManagerFormValid} onClick={showResultManagerModal}>
                                 변경하기
                             </Button>
                         </div>
                     ]}
                 >
-                    <div className={`hometax-name ${errors.name ? 'error' : ''}`}>
+                    <div className={`name ${errors.name ? 'error' : ''}`}>
                         이름
                         <Input
                             className={errors.name ? 'error-border' : ''}
@@ -208,7 +290,7 @@ const CorpInfoInputPage = () => {
                         />
                         {errors.name && <div className="error-message">{errors.name}</div>}
                     </div>
-                    <div className={`hometax-phone ${errors.phone ? 'error' : ''}`}>
+                    <div className={`phone ${errors.phone ? 'error' : ''}`}>
                         휴대폰번호<br />
                         <Input
                             className={errors.phone ? 'error-border' : ''}
@@ -221,6 +303,36 @@ const CorpInfoInputPage = () => {
                         />
                         {errors.phone && <div className="error-message">{errors.phone}</div>}
                     </div>
+                </Modal>
+                <Modal
+                    visible={isCompleteManagerModalOpen}
+                    onOk={CompleteManagerHandleOk}
+                    onCancel={CompleteManagerHandleCancel}
+                    centered
+                    width="300px"
+                    footer={[
+                        <div style={{display:'flex'}}>
+                            <Button style={{ margin: '0 auto', backgroundColor: '#DCDCDC', width: '150px', }} key="ok" onClick={CompleteManagerHandleOk}>
+                                닫기
+                            </Button>
+                        </div>
+                    ]}
+                ><h3>담당자 변경이 완료되었습니다.</h3>
+                </Modal>
+                <Modal
+                    visible={isFailManagerModalOpen}
+                    onOk={FailManagerHandleOk}
+                    onCancel={FailManagerHandleCancel}
+                    centered
+                    width="300px"
+                    footer={[
+                        <div style={{display:'flex'}}>
+                            <Button style={{ margin: '0 auto', backgroundColor: '#DCDCDC', width: '150px', }} key="ok" onClick={FailManagerHandleOk}>
+                                닫기
+                            </Button>
+                        </div>
+                    ]}
+                ><h3>변경된 정보가 없어요. <br/> 변경할 정보를 입력해주세요. </h3>
                 </Modal>
             </div>
         </div>

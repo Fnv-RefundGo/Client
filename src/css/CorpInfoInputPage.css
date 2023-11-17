@@ -12,3 +12,13 @@
 .num-third {
     width: 37%;
 }
+
+.name, .phone {
+    margin-top: 20px;
+    text-align: left;
+    font-family: pretendard;
+    color: grey;
+}
+h3 {
+    text-align: center;
+}

@@ -113,15 +113,10 @@ const HometaxIndiInfoInputPage = () => {
     // 세션 스토리지에 데이터 저장
     const storeDataInSessionStorage = () => {
         const storedData = sessionStorage.getItem('userData');
-        const currentData = {
-            name,
-            ssnFront,
-            ssnBack,
-            phone,
-        };
+        const currentData = { name, ssnFront, ssnBack, phone,};
 
-        // 저장된 데이터가 없거나 현재 입력된 데이터와 다를 때에만 저장
-        if (!storedData ) {
+        // 저장된 데이터가 없을 때에만 저장
+        if (!storedData) {
             sessionStorage.setItem('userData', JSON.stringify(currentData));
         }
     }
@@ -147,12 +142,11 @@ const HometaxIndiInfoInputPage = () => {
                 navigate("/hometax-individual-cert");
             }
         } else {
-            setIsModalOpen(true);
+            storeDataInSessionStorage();
         }
     };
 
     const handleOk = () => {
-        storeDataInSessionStorage();
         setIsModalOpen(false);
     };
     const handleCancel = () => {
