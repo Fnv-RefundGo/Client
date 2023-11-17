@@ -18,6 +18,7 @@ const CorpInfoInputPage = () => {
     const [isManagerModalOpen, setIsManagerModalOpen] = useState(false);
     const [isCompleteManagerModalOpen, setIsCompleteManagerModalOpen] = useState(false);
     const [isFailManagerModalOpen, setIsFailManagerModalOpen] = useState(false);
+    const [isErrorManagerModalOpen, setIsErrorManagerModalOpen] = useState(false);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const navigate = useNavigate();
@@ -128,6 +129,10 @@ const CorpInfoInputPage = () => {
         } else {
             storeManagerDataInSessionStorage();
         }
+        if(!(name.length >= 2 && /^[a-zA-Z가-힣]+$/.test(name) && /^\d{3}\d{4}\d{4}$/.test(phone))) {
+            showErrorManagerModal();
+            setIsCompleteManagerModalOpen(false);
+        }
     };
     const showCompleteManagerModal = () => {
         setIsCompleteManagerModalOpen(true);
@@ -153,6 +158,19 @@ const CorpInfoInputPage = () => {
         setIsFailManagerModalOpen(false);
     }
 
+    // 담당자 잘못된 정보 입력 모달
+    const showErrorManagerModal = () => {
+        setIsErrorManagerModalOpen(true);
+    }
+
+    const ErrorManagerHandleOk = () => {
+        setIsErrorManagerModalOpen(false);
+    }
+
+    const ErrorManagerHandleCancel = () => {
+        setIsErrorManagerModalOpen(false);
+    }
+
     // 담당자 이름, 연락처 검증
     const validateName = () => {
         const nameRegex = /^[a-zA-Z가-힣]+$/; // 이름에는 알파벳과 한글만 허용
@@ -173,8 +191,6 @@ const CorpInfoInputPage = () => {
             setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
         }
     };
-
-    const isManagerFormValid = name.length >= 2 && /^[a-zA-Z가-힣]+$/.test(name) && /^\d{3}\d{4}\d{4}$/.test(phone);
 
     return(
         <div>
@@ -271,7 +287,7 @@ const CorpInfoInputPage = () => {
                                 닫기
                             </Button>
                             <Button style={{ margin: '0 auto', backgroundColor: '#4A5BF6', color: 'white', width: '150px',}}
-                                    disabled={!isManagerFormValid} onClick={showResultManagerModal}>
+                                    onClick={showResultManagerModal}>
                                 변경하기
                             </Button>
                         </div>
@@ -306,13 +322,29 @@ const CorpInfoInputPage = () => {
                 </Modal>
                 <Modal
                     visible={isCompleteManagerModalOpen}
-                    onOk={CompleteManagerHandleOk}
-                    onCancel={CompleteManagerHandleCancel}
+                    onOk={() => {
+                        setIsCompleteManagerModalOpen(false);
+                        setIsManagerModalOpen(false);
+                        setIsFailManagerModalOpen(false);
+                        setIsModalOpen(false);
+                    }}
+                    onCancel={() => {
+                        setIsCompleteManagerModalOpen(false);
+                        setIsManagerModalOpen(false);
+                        setIsFailManagerModalOpen(false);
+                        setIsModalOpen(false);
+                    }}
                     centered
                     width="300px"
                     footer={[
                         <div style={{display:'flex'}}>
-                            <Button style={{ margin: '0 auto', backgroundColor: '#DCDCDC', width: '150px', }} key="ok" onClick={CompleteManagerHandleOk}>
+                            <Button style={{ margin: '0 auto', backgroundColor: '#DCDCDC', width: '100px', }} key="ok"
+                                    onClick={() => {
+                                        setIsCompleteManagerModalOpen(false);
+                                        setIsManagerModalOpen(false);
+                                        setIsFailManagerModalOpen(false);
+                                        setIsModalOpen(false);
+                                    }}>
                                 닫기
                             </Button>
                         </div>
@@ -327,12 +359,27 @@ const CorpInfoInputPage = () => {
                     width="300px"
                     footer={[
                         <div style={{display:'flex'}}>
-                            <Button style={{ margin: '0 auto', backgroundColor: '#DCDCDC', width: '150px', }} key="ok" onClick={FailManagerHandleOk}>
+                            <Button style={{ margin: '0 auto', backgroundColor: '#DCDCDC', width: '100px', }} key="ok" onClick={FailManagerHandleOk}>
                                 닫기
                             </Button>
                         </div>
                     ]}
                 ><h3>변경된 정보가 없어요. <br/> 변경할 정보를 입력해주세요. </h3>
+                </Modal>
+                <Modal
+                    visible={isErrorManagerModalOpen}
+                    onOk={ErrorManagerHandleOk}
+                    onCancel={ErrorManagerHandleCancel}
+                    centered
+                    width="300px"
+                    footer={[
+                        <div style={{display:'flex'}}>
+                            <Button style={{ margin: '0 auto', backgroundColor: '#DCDCDC', width: '100px', }} key="ok" onClick={ErrorManagerHandleOk}>
+                                닫기
+                            </Button>
+                        </div>
+                    ]}
+                ><h3>정확한 정보를 입력해주세요.</h3>
                 </Modal>
             </div>
         </div>
