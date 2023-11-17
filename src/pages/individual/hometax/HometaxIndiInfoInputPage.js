@@ -121,7 +121,7 @@ const HometaxIndiInfoInputPage = () => {
         };
 
         // 저장된 데이터가 없거나 현재 입력된 데이터와 다를 때에만 저장
-        if (!storedData || JSON.stringify(currentData) !== storedData) {
+        if (!storedData ) {
             sessionStorage.setItem('userData', JSON.stringify(currentData));
         }
     }
@@ -158,23 +158,6 @@ const HometaxIndiInfoInputPage = () => {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
-
-    // useEffect 훅에서 세션 스토리지에서 데이터를 가져와 초기 상태 설정
-    useEffect(() => {
-        const storedData = sessionStorage.getItem('userData');
-        if (storedData) {
-            const parsedData = JSON.parse(storedData);
-            setName(parsedData.name || '');
-            setSsnFront(parsedData.ssnFront || '');
-            setSsnBack(parsedData.ssnBack || '');
-            setPhone(parsedData.phone || '');
-        }
-    }, []);
-
-    useEffect(() => {
-        // 페이지가 마운트될 때 세션 스토리지를 초기화
-        sessionStorage.removeItem('userData');
-    }, []);
 
     return(
         <div>
