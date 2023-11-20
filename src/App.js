@@ -22,6 +22,9 @@ import IdPageComwel from "./pages/terms/IdPage-comwel";
 import IndiRefundCompletePage from "./pages/individual/IndiRefundCompletePage";
 import CorpMemberInfoInputPage from "./pages/corporate/CorpMemberInfoInputPage";
 import CorpInfoInputPage from "./pages/corporate/CorpInfoInputPage";
+import HometaxCorpCertificationUploadPage from "./pages/corporate/hometax/HometaxCorpCertificationUploadPage";
+import ComwelCorpCertificationUploadPage from "./pages/corporate/comwel/ComwelCorpCertificationUploadPage";
+
 
 function App() {
     return (
@@ -55,6 +58,8 @@ function App() {
 
                         <Route path="/corporate-member-infoInput" element={<CorpMemberInfoInputPage/>}/>
                         <Route path="/corporate-infoInput" element={<CorpInfoInputPage/>}/>
+                        <Route path="/corporate-hometax-certification-upload" element={<HometaxCorpCertificationUploadPage/>}/>
+                        <Route path="/corporate-comwel-certification-upload" element={<ComwelCorpCertificationUploadPage/>}/>
 
                     </Routes>
                 </div>

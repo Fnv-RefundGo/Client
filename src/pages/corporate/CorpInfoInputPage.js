@@ -22,6 +22,7 @@ const CorpInfoInputPage = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const navigate = useNavigate();
+    const [isManagerChangeCompleted, setIsManagerChangeCompleted] = useState(false);
 
     // 상호명 검증
     const validateCorpName = () => {
@@ -57,7 +58,7 @@ const CorpInfoInputPage = () => {
     const isFormValid = corpName.length >= 1 && /^[a-zA-Z가-힣]+$/.test(corpName)
         && /^\d{3}$/.test(businessNumFst) && /^\d{2}$/.test(businessNumSec) && /^\d{5}$/.test(businessNumTrd);
 
-    // 세션 스토리지에 데이터 저장
+    // 세션 스토리지에 사업장 데이터 저장
     const storeDataInSessionStorage = () => {
         const storedData = sessionStorage.getItem('corpData');
         const currentData = {corpName, businessNumFst, businessNumSec, businessNumTrd};
@@ -66,7 +67,7 @@ const CorpInfoInputPage = () => {
         }
     }
 
-    // 세션 스토리지에 데이터 저장
+    // 세션 스토리지에 담당자 데이터 저장
     const storeManagerDataInSessionStorage = () => {
         const storedData = sessionStorage.getItem('managerData');
         const currentData = {name, phone};
@@ -75,7 +76,7 @@ const CorpInfoInputPage = () => {
         }
     }
 
-    // 모달
+    // 초기 모달
     const showModal = () => {
         const storedData = sessionStorage.getItem('corpData');
         if(storedData) {
@@ -86,7 +87,7 @@ const CorpInfoInputPage = () => {
                 businessNumSec !== parsedData.businessNumSec ||
                 businessNumTrd !== parsedData.businessNumTrd
             ) {
-                navigate("/");
+                navigate("/corporate-hometax-certification-upload");
             } else {
                 setIsModalOpen(true);
             }
@@ -123,6 +124,7 @@ const CorpInfoInputPage = () => {
                 phone !== parsedData.phone
             ) {
                 showCompleteManagerModal();
+                setIsManagerChangeCompleted(true);
             } else {
                 showFailManagerModal();
             }
@@ -132,18 +134,12 @@ const CorpInfoInputPage = () => {
         if(!(name.length >= 2 && /^[a-zA-Z가-힣]+$/.test(name) && /^\d{3}\d{4}\d{4}$/.test(phone))) {
             showErrorManagerModal();
             setIsCompleteManagerModalOpen(false);
+            setIsManagerChangeCompleted(false);
         }
     };
     const showCompleteManagerModal = () => {
         setIsCompleteManagerModalOpen(true);
     }
-    const CompleteManagerHandleOk = () => {
-        setIsCompleteManagerModalOpen(false);
-    };
-
-    const CompleteManagerHandleCancel = () => {
-        setIsCompleteManagerModalOpen(false);
-    };
 
     // 담당자 변경 실패 모달
     const showFailManagerModal = () => {
@@ -169,6 +165,15 @@ const CorpInfoInputPage = () => {
 
     const ErrorManagerHandleCancel = () => {
         setIsErrorManagerModalOpen(false);
+    }
+
+    // 다음 버튼 클릭 이벤트
+    const handleNextButtonClick = () => {
+        if (isManagerChangeCompleted) {
+            navigate("/corporate-hometax-certification-upload");
+        } else {
+            showModal();
+        }
     }
 
     // 담당자 이름, 연락처 검증
@@ -250,7 +255,7 @@ const CorpInfoInputPage = () => {
                     />
                     {errors.num && <div className="error-message">{errors.num}</div>}
                 </div>
-                <Button className="nextButton" disabled={!isFormValid} onClick={showModal}>
+                <Button className="nextButton" disabled={!isFormValid} onClick={handleNextButtonClick}>
                     다음
                 </Button>
                 <Modal
