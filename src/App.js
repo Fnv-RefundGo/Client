@@ -10,8 +10,6 @@ import Identification from "./pages/kakao/Identification";
 import HometaxIndiInfoInputPage from "./pages/individual/hometax/HometaxIndiInfoInputPage";
 import PrivacyPageHometax from "./pages/terms/PrivacyPage-hometax";
 import ThirdPageHometax from "./pages/terms/ThirdPage-hometax";
-import Redirection from "./components/Redirection";
-import OAuth from "./components/OAuth";
 import HometaxIndiCertificationPage from "./pages/individual/hometax/HometaxIndiCertificationPage";
 import ComwelIndiInfoInputPage from "./pages/individual/comwel/ComwelIndiInfoInputPage";
 import ComwelIndiCertificationPage from "./pages/individual/comwel/ComwelIndiCertificationPage";
@@ -22,8 +20,8 @@ import IdPageComwel from "./pages/terms/IdPage-comwel";
 import IndiRefundCompletePage from "./pages/individual/IndiRefundCompletePage";
 import CorpMemberInfoInputPage from "./pages/corporate/CorpMemberInfoInputPage";
 import CorpInfoInputPage from "./pages/corporate/CorpInfoInputPage";
-import HometaxCorpCertificationUploadPage from "./pages/corporate/hometax/HometaxCorpCertificationUploadPage";
-import ComwelCorpCertificationUploadPage from "./pages/corporate/comwel/ComwelCorpCertificationUploadPage";
+import CorpCertificationUploadPage from "./pages/corporate/CorpCertificationUploadPage";
+
 
 
 function App() {
@@ -58,9 +56,7 @@ function App() {
 
                         <Route path="/corporate-member-infoInput" element={<CorpMemberInfoInputPage/>}/>
                         <Route path="/corporate-infoInput" element={<CorpInfoInputPage/>}/>
-                        <Route path="/corporate-hometax-certification-upload" element={<HometaxCorpCertificationUploadPage/>}/>
-                        <Route path="/corporate-comwel-certification-upload" element={<ComwelCorpCertificationUploadPage/>}/>
-
+                        <Route path="/corporate-certification-upload" element={<CorpCertificationUploadPage/>}/>
                     </Routes>
                 </div>
             </div>

@@ -4,13 +4,13 @@
 }
 
 .complete-text1 {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
 }
 
 .complete-text2 {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 15px;
     color: grey;
 }
 
@@ -19,14 +19,19 @@
     display: inline-flex;
 }
 
+.refundImg, .clockImg {
+    width: 120px;
+}
+
 .homeBtn {
-    width: 450px;
-    height: 45px;
+    width: 400px;
+    height: 40px;
+    padding: 5px;
     background-color: #4A5BF6;
     border-radius: 5px;
     text-align: center;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     font-family: pretendard;
     margin-top: 50px;
 }

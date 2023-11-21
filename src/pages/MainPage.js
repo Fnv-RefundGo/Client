@@ -20,7 +20,7 @@ const MainPage = () => {
 
     return (
         <div className="custom-carousel-container">
-            <Carousel {...settings}>
+            <Carousel autoplay {...settings}>
                 <div>
                     <br/>
                     <img className="mainImg" src={process.env.PUBLIC_URL + `/assets/refund.svg`}/>

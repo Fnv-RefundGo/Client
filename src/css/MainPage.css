@@ -6,16 +6,18 @@
 .slick-dots {
     text-align: center;
     margin-top: 10px;
+    position: fixed;
 }
 
 .slick-dots li {
-    display: inline;
     cursor: pointer;
+    display: inline-block;
+    position: fixed;
 }
 
 .slick-dots li button {
     border: none;
-    position: absolute;
+    position: fixed;
 }
 
 .slick-dots li button::before {
@@ -26,7 +28,8 @@
     border: 2px solid #1890ff;
     background-color: #4A5BF6;
     border-radius: 50%;
-    display: block;
+    display: inline-block;
+    margin-right: 0px;
 }
 
 .mainText {
