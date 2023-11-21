@@ -87,7 +87,7 @@ const CorpInfoInputPage = () => {
                 businessNumSec !== parsedData.businessNumSec ||
                 businessNumTrd !== parsedData.businessNumTrd
             ) {
-                navigate("/corporate-hometax-certification-upload");
+                navigate("/corporate-certification-upload");
             } else {
                 setIsModalOpen(true);
             }
@@ -170,7 +170,7 @@ const CorpInfoInputPage = () => {
     // 다음 버튼 클릭 이벤트
     const handleNextButtonClick = () => {
         if (isManagerChangeCompleted) {
-            navigate("/corporate-hometax-certification-upload");
+            navigate("/corporate-certification-upload");
         } else {
             showModal();
         }

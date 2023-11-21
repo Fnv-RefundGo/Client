@@ -20,7 +20,11 @@ import IdPageComwel from "./pages/terms/IdPage-comwel";
 import IndiRefundCompletePage from "./pages/individual/IndiRefundCompletePage";
 import CorpMemberInfoInputPage from "./pages/corporate/CorpMemberInfoInputPage";
 import CorpInfoInputPage from "./pages/corporate/CorpInfoInputPage";
-import CorpCertificationUploadPage from "./pages/corporate/CorpCertificationUploadPage";
+import CorpCertificationUploadPage from "./pages/corporate/certificationUpload/CorpCertificationUploadPage";
+import CorpCertificationUploadBufferingPage from "./pages/corporate/certificationUpload/CorpCertificationUploadBufferingPage";
+import CorpCertificationUploadFailPage from "./pages/corporate/certificationUpload/CorpCertificationUploadFailPage";
+import CorpCertificationUploadSuccessPage
+    from "./pages/corporate/certificationUpload/CorpCertificationUploadSuccessPage";
 
 
 
@@ -57,6 +61,9 @@ function App() {
                         <Route path="/corporate-member-infoInput" element={<CorpMemberInfoInputPage/>}/>
                         <Route path="/corporate-infoInput" element={<CorpInfoInputPage/>}/>
                         <Route path="/corporate-certification-upload" element={<CorpCertificationUploadPage/>}/>
+                        <Route path="/corporate-certification-upload-buffering" element={<CorpCertificationUploadBufferingPage/>}/>
+                        <Route path="/corporate-certification-upload-fail" element={<CorpCertificationUploadFailPage/>}/>
+                        <Route path="/corporate-certification-upload-success" element={<CorpCertificationUploadSuccessPage/>}/>
                     </Routes>
                 </div>
             </div>
