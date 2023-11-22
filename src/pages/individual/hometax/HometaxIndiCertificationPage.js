@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, Popover, Steps } from 'antd';
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 
 const customDot = (dot) => (
     <Popover>{dot}</Popover>
@@ -8,22 +9,24 @@ const customDot = (dot) => (
 
 const HometaxIndiCertificationPage = () => {
 
+    const navigate = useNavigate();
+
     // 카카오 메시지 전송 함수
-    const handleKakaoMessage = async () => {
-        try {
-            const response = await axios.get("http://localhost:8080/sendKakaoMessage");
-            console.log(response.data);
-        } catch (error) {
-            console.error('Error sending Kakao message:', error);
-        }
-    };
+    // const handleKakaoMessage = async () => {
+    //     try {
+    //         const response = await axios.get("http://localhost:8080/sendKakaoMessage");
+    //         console.log(response.data);
+    //     } catch (error) {
+    //         console.error('Error sending Kakao message:', error);
+    //     }
+    // };
 
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [minutes, setMinutes] = useState(5);
     const [seconds, setSeconds] = useState(0);
 
     const showModal = () => {
-        handleKakaoMessage(); // 모달이 열릴 때 Kakao 메시지 전송 함수 호출
+        //handleKakaoMessage(); // 모달이 열릴 때 Kakao 메시지 전송 함수 호출
         resetTimer();
         setIsModalVisible(true);
     };
@@ -34,6 +37,7 @@ const HometaxIndiCertificationPage = () => {
 
     const handleCancel = () => {
         setIsModalVisible(false);
+        navigate("/comwel-individual-infoInput");
     };
 
     const resetTimer = () => {
