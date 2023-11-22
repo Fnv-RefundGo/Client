@@ -22,8 +22,8 @@ const Identification = () => {
 
         if (authorizationCode) {
             // 서버로 인가 코드를 전송
-            fetch('/login', {
-                method: 'POST',
+            fetch('/api/v1/oauth2/kakao', {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                 },

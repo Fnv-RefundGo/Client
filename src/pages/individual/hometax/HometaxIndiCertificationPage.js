@@ -11,7 +11,7 @@ const HometaxIndiCertificationPage = () => {
     // 카카오 메시지 전송 함수
     const handleKakaoMessage = async () => {
         try {
-            const response = await axios.get("/sendKakaoMessage");
+            const response = await axios.get("http://localhost:8080/sendKakaoMessage");
             console.log(response.data);
         } catch (error) {
             console.error('Error sending Kakao message:', error);
