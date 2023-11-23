@@ -14,6 +14,7 @@ const Footer = () => {
         <div className="footer">
             <div className="content">
                 <br/>
+                <div className="content-text">
                 <div><b>아코테 컨설팅 주식회사</b></div>
                 <div><b>Copyright© Acote. All Rights Reserved</b></div><br/>
                 <div className="opacity">
@@ -24,13 +25,14 @@ const Footer = () => {
                 </div>
                 <br/>
                 <div><b>아코테 컨설팅 기본약관</b></div>
-                <div className="opacity">
-                <div className="display">
-                    <div className="terms" onClick={goOnTermsPage}>서비스 이용약관</div>
-                    <div className="privacy" onClick={goOnPrivacyPage}>개인정보 처리방침</div>
-                </div>
-                </div>
+                    <div className="opacity">
+                        <div className="display">
+                            <div className="terms" onClick={goOnTermsPage}>서비스 이용약관 </div>
+                            <div className="privacy" onClick={goOnPrivacyPage}>개인정보 처리방침</div>
+                        </div>
+                    </div>
                 {/*<img className="channel-talk" src={process.env.PUBLIC_URL + `/assets/channel-talk.svg`}/>*/}
+                </div>
             </div>
         </div>
     );

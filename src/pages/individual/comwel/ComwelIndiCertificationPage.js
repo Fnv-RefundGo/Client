@@ -22,7 +22,7 @@ const ComwelIndiCertificationPage = () => {
 
     const handleCancel = () => {
         setIsModalOpen(false);
-        window.location.href = "/individual-refund-complete";
+        window.location.href = "/refund-complete";
     };
 
     const resetTimer = () => {

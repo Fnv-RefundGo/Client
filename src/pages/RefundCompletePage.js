@@ -1,8 +1,8 @@
 import React from 'react';
-import '../../css/RefundCompletePage.css';
+import '../css/RefundCompletePage.css';
 import {Button} from "antd";
 
-const IndiRefundCompletePage = () => {
+const RefundCompletePage = () => {
     return(
         <div className="complete-wrapper">
             <div className="complete-text1">사업장의 환급조회 접수가 완료되었습니다.</div>
@@ -18,4 +18,4 @@ const IndiRefundCompletePage = () => {
     );
 }
 
-export default IndiRefundCompletePage;
+export default RefundCompletePage;

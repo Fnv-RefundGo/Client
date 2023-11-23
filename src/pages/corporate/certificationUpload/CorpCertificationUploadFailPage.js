@@ -39,7 +39,9 @@ const CorpCertificationUploadFailPage = () => {
                               사업장 인증서가 확인되지 않습니다.<br/>
                               해당 사이트에 인증서 업로드 확인 후 재시도 바랍니다.
                           </div>
+                          <a href="/corporate-certification-upload">
                           <div className="re-upload">재업로드</div>
+                          </a>
                       </div>
                   </div>
                   <div className="hometax-upload-contents2">

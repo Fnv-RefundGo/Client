@@ -19,6 +19,7 @@ const MainPage = () => {
     }
 
     return (
+        <div>
         <div className="custom-carousel-container">
             <Carousel autoplay {...settings}>
                 <div>
@@ -53,8 +54,9 @@ const MainPage = () => {
                     <br/>
                 </div>
             </Carousel>
-            <Button className="nextBtn" onClick={goOnIdentificationPage}> 다음 </Button>
-            <Footer/>
+        </div>
+    <Button className="nextBtn" onClick={goOnIdentificationPage}> 다음 </Button>
+    <Footer/>
         </div>
 
     );

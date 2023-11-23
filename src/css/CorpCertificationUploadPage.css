@@ -75,11 +75,18 @@ span.cert {
     color: grey;
 }
 
+.upload-certification a {
+    text-decoration: none;
+    color: grey;
+}
+
 .cert-upload-nextBtn {
     margin-top: 50px;
     width: 450px;
     height: 35px;
     font-family: pretendard;
+    background-color: #4A5BF6;
+    color: white;
 }
 
 .circleX {

@@ -17,7 +17,7 @@ import PrivacyPageComwel from "./pages/terms/PrivacyPage-comwel";
 import TermsPageComwel from "./pages/terms/TermsPage-comwel";
 import ThirdPageComwel from "./pages/terms/ThirdPage-comwel";
 import IdPageComwel from "./pages/terms/IdPage-comwel";
-import IndiRefundCompletePage from "./pages/individual/IndiRefundCompletePage";
+import RefundCompletePage from "./pages/RefundCompletePage";
 import CorpMemberInfoInputPage from "./pages/corporate/CorpMemberInfoInputPage";
 import CorpInfoInputPage from "./pages/corporate/CorpInfoInputPage";
 import CorpCertificationUploadPage from "./pages/corporate/certificationUpload/CorpCertificationUploadPage";
@@ -56,7 +56,7 @@ function App() {
                         <Route path="/comwel-third" element={<ThirdPageComwel/>}/>
                         <Route path="/comwel-id" element={<IdPageComwel/>}/>
 
-                        <Route path="/individual-refund-complete" element={<IndiRefundCompletePage/>}/>
+                        <Route path="/refund-complete" element={<RefundCompletePage/>}/>
 
                         <Route path="/corporate-member-infoInput" element={<CorpMemberInfoInputPage/>}/>
                         <Route path="/corporate-infoInput" element={<CorpInfoInputPage/>}/>

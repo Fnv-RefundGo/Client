@@ -9,23 +9,29 @@
 }
 
 .content {
+    margin: 0 auto;
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 0;
     transform: translate(0, -50%);
     font-size: 12px;
     font-family: pretendard;
-    width: 100%;
-    justify-content: center;
+}
+.content-text {
+    margin: 0 auto;
+    width: 350px;
+    background-color: ghostwhite;
+    text-align: left;
 }
 
 .display {
     display: flex;
-    justify-content: center;
+    text-align: left;
 }
 
 .display > div {
-    margin: 0 10px;
+    margin-right: 20px;
 }
 
 .opacity {

@@ -47,7 +47,9 @@ const CorpCertificationUploadSuccessPage = () => {
                           <PlusCircleFilled className="circlePlus" /><br/>인증서 가져오기
                       </div>
                   </div>
-                  <Button className="cert-upload-nextBtn" disabled>다음</Button>
+                  <a href="/refund-complete">
+                  <Button className="cert-upload-nextBtn">다음</Button>
+                  </a>
               </div>
           </div>
       </div>
