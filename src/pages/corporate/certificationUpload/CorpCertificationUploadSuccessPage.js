@@ -33,8 +33,15 @@ const CorpCertificationUploadSuccessPage = () => {
                           <div className="hometax-cert-text1">홈택스 인증서</div><br/>
                           <div className="hometax-cert-text2">홈택스 사이트에서 신고된<br/>현황내역을 수집하기 위한 인증서</div>
                       </div>
-                      <div className="upload-certification">
-                          {/*<div className="re-upload">재업로드</div>*/}
+                      <div className="certification-info">
+                          <div className="certification-contents">
+                              인증서명<br/><br/>구분<br/><br/>만료일자<br/><br/>인증기관
+                          </div>
+                          <div className="re-upload2">
+                              <a href="/corporate-certification-upload">
+                              재업로드
+                              </a>
+                          </div>
                       </div>
                   </div>
                   <div className="hometax-upload-contents2">

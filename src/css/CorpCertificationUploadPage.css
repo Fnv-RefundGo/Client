@@ -107,6 +107,13 @@ span.cert {
     font-size: 11px;
 }
 
+.re-upload2 {
+    margin-right: 10px;
+    float: right;
+    font-size: 11px;
+    color: grey;
+}
+
 .circlePlus {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -116,4 +123,23 @@ span.cert {
 
 .cert-contents {
     float: left;
+}
+
+.certification-info {
+    border-radius: 10px;
+    margin-top: 13px;
+    width: 50%;
+    background-color: white;
+}
+
+.certification-contents {
+    text-align: left;
+    color: black;
+    font-size: 10px;
+    margin-left: 20px;
+}
+
+.re-upload2 a {
+    text-decoration: none;
+    color: grey;
 }

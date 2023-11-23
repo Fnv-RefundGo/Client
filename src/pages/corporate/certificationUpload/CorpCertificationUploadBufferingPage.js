@@ -42,12 +42,14 @@ const CorpCertificationUploadBufferingPage = () => {
                           <div className="hometax-cert-text2">홈택스 사이트에서 신고된<br/>현황내역을 수집하기 위한 인증서</div>
                       </div>
                       <div className="upload-certification">
+                          <a href="/corporate-certification-upload-fail">
                         <Upload
                            listType="picture"
                            fileList={fileList}
                            showUploadList={{showRemoveIcon: false}}
                         >
                         </Upload>
+                          </a>
                       </div>
                   </div>
                   <div className="hometax-upload-contents2">

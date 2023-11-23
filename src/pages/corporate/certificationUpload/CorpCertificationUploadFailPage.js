@@ -34,11 +34,13 @@ const CorpCertificationUploadFailPage = () => {
                           <div className="hometax-cert-text2">홈택스 사이트에서 신고된<br/>현황내역을 수집하기 위한 인증서</div>
                       </div>
                       <div className="upload-certification">
+                          <a href="/corporate-certification-upload-success">
                           <CloseCircleFilled className="circleX"/><br/>
                           <div className="cert-upload-fail-text">
                               사업장 인증서가 확인되지 않습니다.<br/>
                               해당 사이트에 인증서 업로드 확인 후 재시도 바랍니다.
                           </div>
+                          </a>
                           <a href="/corporate-certification-upload">
                           <div className="re-upload">재업로드</div>
                           </a>
