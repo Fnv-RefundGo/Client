@@ -152,7 +152,7 @@ const HometaxIndiInfoInputPage = () => {
 
     const showModal = async () => {
         try {
-            const response = await fetch('http://localhost:8080/compareIndividual', {
+            const response = await fetch('/compareIndividual', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
