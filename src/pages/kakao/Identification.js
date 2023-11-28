@@ -40,8 +40,6 @@ const Identification = () => {
                 .then((data) => {
                     // 서버로부터의 응답 처리 (토큰이 포함될 수 있음)
                     console.log(data);
-                    // 로그인에 성공하면 /agree 경로로 이동
-                    navigate("/agree");
                 })
                 .catch((error) => {
                     console.error('Error:', error);

@@ -3,6 +3,7 @@ import "../../../css/InfoInputPage.css";
 import '../../../css/AgreePage.css';
 import {Button, Checkbox, Input, Modal, Popover, Steps} from "antd";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 const customDot = (dot) => (
     <Popover>{dot}</Popover>
@@ -110,39 +111,75 @@ const HometaxIndiInfoInputPage = () => {
     const isAllRequiredChecked = checkedList.includes('terms') && checkedList.includes('privacy');
     const isFormValid = name.length >= 2 && /^[a-zA-Z가-힣]+$/.test(name) && ssnFront.length === 6 && ssnBack.length === 7 && /^\d{3}\d{4}\d{4}$/.test(phone);
 
-    // 세션 스토리지에 데이터 저장
-    const storeDataInSessionStorage = () => {
-        const storedData = sessionStorage.getItem('userData');
-        const currentData = { name, ssnFront, ssnBack, phone,};
+    // // 세션 스토리지에 데이터 저장
+    // const storeDataInSessionStorage = () => {
+    //     const storedData = sessionStorage.getItem('userData');
+    //     const currentData = { name, ssnFront, ssnBack, phone,};
+    //
+    //     // 저장된 데이터가 없을 때에만 저장
+    //     if (!storedData) {
+    //         sessionStorage.setItem('userData', JSON.stringify(currentData));
+    //     }
+    // }
+    // const [isModalOpen, setIsModalOpen] = useState(false);
+    // const navigate = useNavigate();
+    // const showModal = () => {
+    //     // 세션 스토리지에서 저장된 데이터를 가져옴
+    //     const storedData = sessionStorage.getItem('userData');
+    //
+    //     // 저장된 데이터가 있다면 현재 입력 값과 비교
+    //     if (storedData) {
+    //         const parsedData = JSON.parse(storedData);
+    //
+    //         if (
+    //             name !== parsedData.name ||
+    //             ssnFront !== parsedData.ssnFront ||
+    //             ssnBack !== parsedData.ssnBack ||
+    //             phone !== parsedData.phone
+    //         ) {
+    //             // 입력 값이 다를 때만 모달을 표시
+    //             setIsModalOpen(true);
+    //         } else {
+    //             navigate("/hometax-individual-cert");
+    //         }
+    //     } else {
+    //         storeDataInSessionStorage();
+    //     }
+    // };
 
-        // 저장된 데이터가 없을 때에만 저장
-        if (!storedData) {
-            sessionStorage.setItem('userData', JSON.stringify(currentData));
-        }
-    }
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
-    const showModal = () => {
-        // 세션 스토리지에서 저장된 데이터를 가져옴
-        const storedData = sessionStorage.getItem('userData');
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-        // 저장된 데이터가 있다면 현재 입력 값과 비교
-        if (storedData) {
-            const parsedData = JSON.parse(storedData);
+    const showModal = async () => {
+        try {
+            const response = await fetch('http://localhost:8080/compareIndividual', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name:"홍길동",
+                    ssnFront:"010203",
+                    ssnBack:'3123456',
+                    phone:'01012345678',
+                }),
+                credentials: 'include', // Credentials 정보를 포함
+            });
 
-            if (
-                name !== parsedData.name ||
-                ssnFront !== parsedData.ssnFront ||
-                ssnBack !== parsedData.ssnBack ||
-                phone !== parsedData.phone
-            ) {
-                // 입력 값이 다를 때만 모달을 표시
-                setIsModalOpen(true);
-            } else {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            console.log(data);
+            setIsModalOpen(true);  // 일치하지 않을 때 모달 표시
+
+            // 일치하면 페이지 이동
+            if (data === "입력된 값과 DB의 값이 일치합니다.") {
                 navigate("/hometax-individual-cert");
             }
-        } else {
-            storeDataInSessionStorage();
+        } catch (error) {
+            console.error('Error:', error);
         }
     };
 
